@@ -6,6 +6,22 @@ use Core\Controller;
 
 class SiteController extends Controller {
 
+	public function __construct() {
+
+	}
+
+	public function oauth2Action(){
+
+	}
+
+	public function registerAction() {
+		$this->render('register');
+	}
+
+	public function registercardAction() {
+		$this->render('registercard');
+	}
+
 	public function indexAction($id) {
 		// $DatabaseAPI = new \Lib\DatabaseAPI();
 		// $user = $DatabaseAPI->userLoad();
@@ -14,7 +30,7 @@ class SiteController extends Controller {
 		// 	$url = "/video/". $id . "?" . http_build_query($parameterAry);
 		// else
 		// 	$url = "/video/". $id;
-		// if (!$user) {	
+		// if (!$user) {
 		// 	//$_SESSION['redirect_url'] = $url;
 		// 	$this->redirect("/wechat/ws/oauth2?redirect_uri=".urlencode("http://espritdance.samesamechina.com/callback?callback=".$url). "&scope=snsapi_base");
 		// 	exit;
@@ -36,7 +52,7 @@ class SiteController extends Controller {
 		// 	$this->render('index', array('shareurl' => 'http://espritdance.samesamechina.com' . $url, 'url' => $file->filename, 'vid' => $video->vid , 'mobile' => $mobile, 'isballot' => $isballot, 'ballot' => $ballot, 'ismy' => $ismy));
 		// 	exit;
 		// }
-		// //已绑定	
+		// //已绑定
 		// if ($user->uid == $user_video) {
 		// 	$ismy = 1;
 		// 	if ($info->mobile == '') {

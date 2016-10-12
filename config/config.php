@@ -21,7 +21,7 @@ define("SCOPE", 'snsapi_base');
 
 //Account Access
 define("OAUTH_ACCESS", '{
-	"esprit_dance": "samesamechina.com" 
+	"esprit_dance": "samesamechina.com"
 }');
 define("JSSDK_ACCESS", '{
 	"esprit_dance": "samesamechina.com"
@@ -31,14 +31,10 @@ define("JSSDK_ACCESS", '{
 define("DBHOST", '127.0.0.1');
 define("DBUSER", 'root');
 define("DBPASS", '');
-define("DBNAME", 'esprit_dance');
+define("DBNAME", 'coach_einvite');
 
 define("ENCRYPT_KEY", '29FB77CB8E94B358');
 define("ENCRYPT_IV", '6E4CAB2EAAF32E90');
 
 define("QRG_HOST", 'http://121.41.47.28:84/');
 define("FILE_PATH", dirname(__FILE__) . '/../files');
-
-
-
-
