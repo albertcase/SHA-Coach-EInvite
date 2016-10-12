@@ -21,11 +21,11 @@ class redirctOauth extends FormRequest{
     $HTTP_HOST = isset($_SERVER['HTTP_HOST'])?$_SERVER['HTTP_HOST']:'127.0.0.1:9301';
     $REQUEST_URI = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'';
     $cuurl = urlencode($HTTP_HOST.$REQUEST_URI);
-    // $redirect = array(
-    //   "callback_url":"http://yourapp.curio.im/getdata",
-    //   "redirect_url":"http://yourapp.curio.im",
-    //   "scope":"userinfo"
-    // );
+    $redirect = array(
+      "callback_url":"http://yourapp.curio.im/getdata",
+      "redirect_url":"http://yourapp.curio.im",
+      "scope":"userinfo"
+    );
   }
 
   public function post_data($url, $param, $is_file = false, $return_array = true){

@@ -11,12 +11,14 @@ class SiteController extends Controller {
 	}
 
 	public function oauth2Action(){
-		print_r($_SERVER);
-		echo "aaaaaaa";
+		print_r($_GET);
+		print_r($_POST);
 		return $this->render('register');
 	}
 
 	public function registerAction() {
+		print_r($_GET);
+		print_r($_POST);
 		return $this->render('register');
 	}
 
