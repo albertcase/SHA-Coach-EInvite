@@ -6,6 +6,7 @@ CREATE TABLE `coach_einvite` (
   `openid` varchar(100) DEFAULT NULL,
   `callnumber` varchar(50) DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
+  `userhandurl` varchar(500) DEFAULT NULL,
   `trytimes` int(3) DEFAULT 0,
   `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
