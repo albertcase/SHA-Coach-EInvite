@@ -11,15 +11,17 @@ class SiteController extends Controller {
 	}
 
 	public function oauth2Action(){
-
+		print_r($_SERVER);
+		echo "aaaaaaa";
+		return $this->render('register');
 	}
 
 	public function registerAction() {
-		$this->render('register');
+		return $this->render('register');
 	}
 
 	public function registercardAction() {
-		$this->render('registercard');
+		return $this->render('registercard');
 	}
 
 	public function indexAction($id) {
