@@ -20,14 +20,12 @@ class SiteController extends Controller {
 	}
 
 	public function oauth2Action(){
-		if(!isset($_SESSION['oauthuser']))
-			$_SESSION['oauthuser'] = '0';
 		if(isset($_GET['openid']))
 			$_SESSION['openid'] = $_GET['openid'];
 		if(isset($_GET['callback'])){
 			$_SESSION['callback'] = ($_GET['callback'])?$_GET['callback']:'/';
 		}
-		$oau = isset($_SESSION['oauthuser'])?$_SESSION['oauthuser']:'0';
+		$oau = isset($_SESSION['oauthuser'])?$_SESSION['oauthuser']:'1';
 		if(intval($oau) > 1){
 			if(isset($_SESSION['openid'])){
 				unset($_SESSION['oauthuser']);
@@ -39,6 +37,7 @@ class SiteController extends Controller {
 				return $this->dataPrint('Oauth Error');
 			}
 		}
+		$_SESSION['oauthuser'] = intval($oau)+1;
 		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/7e172a57-ee93-4d02-bc85-7c9b3fcd28cb");
 	}
 
