@@ -36,7 +36,7 @@ class SiteController extends Controller {
 			}
 			if(intval($oau) > 4){//the more oauth error times;
 				unset($_SESSION['oauthuser']);
-				return $this->dataPrint(array('Oauth Error');
+				return $this->dataPrint('Oauth Error');
 			}
 		}
 		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/7e172a57-ee93-4d02-bc85-7c9b3fcd28cb");
