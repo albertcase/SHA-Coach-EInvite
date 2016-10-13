@@ -10,8 +10,18 @@ class SiteController extends Controller {
 
 	}
 
+	public function oauth3Action(){
+		$openid = isset($_GET['openid'])?$_GET['openid']:'';
+		return $this->dataPrint(array('code' => '10', 'msg' => $openid));
+	}
+
 	public function oauth2Action(){
-		return $this->render('register');
+		if(isset($_GET['openid']))
+			$_SESSION['openid'] = $_GET['openid'];
+		if(isset($_SESSION['openid'])){
+			return $this->redirect("/oauth3?openid=".$_SESSION['openid']);
+		}
+		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/0c6b3afb-b6bc-4dce-9f6b-8c1e812e4458");
 	}
 
 	public function registercardAction() {
