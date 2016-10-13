@@ -28,19 +28,19 @@ class ApiController extends Controller {
 	}
 
 	public function registerAction(){
-		// $data = array(
-		// 	'callback_url' => 'http://vipinvitation.samesamechina.com/userinfocallback',
-		// 	'redirect_url' => 'http://vipinvitation.samesamechina.com/oauth2',
-		// 	"scope" => "userinfo"
-		// );
 		$data = array(
-			'code' => 200,
-			'data' => array(
-				'openid' => '1qazxsw23edc',
-				'nickname' => 'dirc',
-				'headimgurl' => 'asdasdasdasdasdasdasd'
-			)
+			'callback_url' => 'http://vipinvitation.samesamechina.com/api/userinfocallback',
+			'redirect_url' => 'http://vipinvitation.samesamechina.com/oauth2',
+			"scope" => "userinfo"
 		);
+		// $data = array(
+		// 	'code' => 200,
+		// 	'data' => array(
+		// 		'openid' => '1qazxsw23edc',
+		// 		'nickname' => 'dirc',
+		// 		'headimgurl' => 'asdasdasdasdasdasdasd'
+		// 	)
+		// );
 		return $this->dataPrint($data);
 	}
 

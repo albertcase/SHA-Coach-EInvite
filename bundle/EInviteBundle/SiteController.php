@@ -21,7 +21,7 @@ class SiteController extends Controller {
 		if(isset($_SESSION['openid'])){
 			return $this->redirect("/oauth3?openid=".$_SESSION['openid']);
 		}
-		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/0c6b3afb-b6bc-4dce-9f6b-8c1e812e4458");
+		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/7e172a57-ee93-4d02-bc85-7c9b3fcd28cb");
 	}
 
 	public function registercardAction() {
