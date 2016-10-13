@@ -1,3 +1,20 @@
+###正式链接
+
+**url:** : /
+
+###页面调试链接（以下均为调试链接）
+
+#####二维码显示页面
+**url:** /awardcard
+
+**position:** /template/awardcard.tpl.php  二维码显示页面
+
+#####号码注册页面
+
+**url:** /registernumber
+
+**position:** /template/registernumber.tpl.php  成功后跳转至"/"
+
 ###模拟微信授权接口
 **url:** /api/demonlogin
 

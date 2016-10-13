@@ -12,9 +12,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="Keywords" content="">
     <meta name="Description" content="...">
+<script>
+  var trytimes = "<?php print $trytimes;?>";
+</script>
 </head>
 <body>
 <strong>DDDDDDDDDDDDDDDDDDDDDDDD</strong><br>
-<?php print $trytimes;?><br>
 </body>
 </html>
