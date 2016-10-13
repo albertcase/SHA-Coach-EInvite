@@ -29,7 +29,7 @@ class SiteController extends Controller {
 		if(intval($oau) > 1){
 			if(isset($_SESSION['openid'])){
 				unset($_SESSION['oauthuser']);
-				$callback_url = isset($_SESSION['callback'])?urlencode($_SESSION['callback']):'/';
+				$callback_url = isset($_SESSION['callback'])?urldecode($_SESSION['callback']):'/';
 				return $this->redirect($callback_url);
 			}
 			if(intval($oau) > 4){//the more oauth error times;
