@@ -14,7 +14,7 @@ class SiteController extends Controller {
 		if(isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
 			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
-			return $this->redirect('/oauth2?callback='urlencode($callback_url));
+			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
 		}
 		return $this->redirect("\nsuccess");
 	}
