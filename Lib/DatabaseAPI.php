@@ -33,7 +33,8 @@ class DatabaseAPI {
 	}
 
 	public function registerAward($openid,$callnumber){
-		$this->insertTry($openid);
+		if($this->insertTry($openid) == 'A')
+			return 'E';//not have this openid
 		if(!$res = $this->checkCallnumber($callnumber))
 			return 'A';//not have this callnumber;
 		if($res->openid)
@@ -47,6 +48,8 @@ class DatabaseAPI {
 	}
 
 	public function insertTry($openid){
+		if(!$this->checkOpenid($openid))
+			return 'A';//not have this user
 		$sql = "UPDATE `coach_userinfo` SET `trytimes` = `trytimes` + 1 WHERE `openid` = ?";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $openid);
@@ -76,6 +79,20 @@ class DatabaseAPI {
 		if($res->fetch()) {
 			$result = new \stdClass();
 			$result->trytimes = $trytimes;
+			return $result;
+		}
+		return false;
+	}
+
+	public function checkAwardOpenid($openid){
+		$sql = "SELECT `openid` FROM `coach_award` WHERE `openid` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $openid);
+		$res->execute();
+		$res->bind_result($ropenid);
+		if($res->fetch()) {
+			$result = new \stdClass();
+			$result->openid = $ropenid;
 			return $result;
 		}
 		return false;

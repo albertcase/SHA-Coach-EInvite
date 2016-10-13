@@ -28,7 +28,7 @@ class Response {
 
 	public function dataPrint($data) {
 		header("Content-type: application/json");
-		print json_encode($data);
+		print json_encode($data, JSON_UNESCAPED_UNICODE);
 		exit;
 	}
 

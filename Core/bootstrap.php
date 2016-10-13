@@ -4,12 +4,13 @@ function __autoload($class) {
 	$class_dir = array(
 		'^Lib\\' => '',
 		'^Core\\' => '',
+		'^forms\\' => '',
 		'Bundle\\' => 'bundle/',
 		);
 	foreach($class_dir as $base => $dir) {
 		if(preg_match("/$base\/", $class)) {
 			$class = str_replace( '\\', DIRECTORY_SEPARATOR, $class);
-			require_once(dirname(__FILE__) . '/../' . $dir . $class . '.php' ); 
+			require_once(dirname(__FILE__) . '/../' . $dir . $class . '.php' );
 		}
 	}
 }
@@ -39,7 +40,7 @@ class Core {
 				$response = call_user_func_array(array(new $class, $method), $matches);
 				$response->send();
 				exit;
-			}			
+			}
 		}
 	}
 }
