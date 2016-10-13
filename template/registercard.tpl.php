@@ -14,6 +14,7 @@
     <meta name="Description" content="...">
 </head>
 <body>
-<strong>KKKKKKKKKKKKKKKKKKKKKKKKKK</strong>
+<strong>KKKKKKKKKKKKKKKKKKKKKKKKKK</strong><br>
+<b><?php print $awardcode;?><b>
 </body>
 </html>

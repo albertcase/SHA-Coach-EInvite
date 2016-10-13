@@ -14,6 +14,7 @@
     <meta name="Description" content="...">
 </head>
 <body>
-<strong>DDDDDDDDDDDDDDDDDDDDDDDD</strong>
+<strong>DDDDDDDDDDDDDDDDDDDDDDDD</strong><br>
+<?php print $trytimes;?><br>
 </body>
 </html>

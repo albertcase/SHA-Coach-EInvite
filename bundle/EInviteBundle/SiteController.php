@@ -11,18 +11,28 @@ class SiteController extends Controller {
 	}
 
 	public function oauth2Action(){
-		print_r($_GET);
-		print_r($_POST);
 		return $this->render('register');
 	}
 
 	public function registerAction() {
-		print_r($_GET);
-		print_r($_POST);
-		return $this->render('register');
+		$_db = new \Lib\DatabaseAPI();
+		$_SESSION['openid'] = 'wwssssssssssssssssadawdawad';
+		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
+		if(!$info = $_db->findFileByOpenid($openid))
+			return $this->render('register', array('trytimes' => '0'));
+		if(!$info->awardcode)
+			return $this->render('register', array('trytimes' => $info->trytimes));
+		return $this->render('registercard', array('awardcode' => $info->awardcode));
 	}
 
 	public function registercardAction() {
+		$_db = new \Lib\DatabaseAPI();
+		$data = array(
+			'openid' => '111111111111111111',
+			'nickname' => 'qqqqqq',
+			'headimgurl' => 'asdasdasdasdasdasd'
+		);
+		print_r($_db->registerAward('111111111111111111','18516180507'));
 		return $this->render('registercard');
 	}
 
