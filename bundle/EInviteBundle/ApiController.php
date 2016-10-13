@@ -41,6 +41,7 @@ class ApiController extends Controller {
 		// 		'headimgurl' => 'asdasdasdasdasdasdasd'
 		// 	)
 		// );
+		print_r($_SERVER);
 		return $this->dataPrint($data);
 	}
 

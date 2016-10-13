@@ -11,15 +11,33 @@ class SiteController extends Controller {
 	}
 
 	public function oauth3Action(){
-		$openid = isset($_GET['openid'])?$_GET['openid']:'';
-		return $this->dataPrint(array('code' => '10', 'msg' => $openid));
+		if(isset($_SESSION['openid'])){
+			unset($_SESSION['oauthuser']);
+			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
+			return $this->redirect('/oauth2?callback='urlencode($callback_url));
+		}
+		return $this->redirect("\nsuccess");
 	}
 
 	public function oauth2Action(){
+		if(!isset($_SESSION['oauthuser']))
+			$_SESSION['oauthuser'] = '0';
 		if(isset($_GET['openid']))
 			$_SESSION['openid'] = $_GET['openid'];
-		if(isset($_SESSION['openid'])){
-			return $this->redirect("/oauth3?openid=".$_SESSION['openid']);
+		if(isset($_GET['callback'])){
+			$_SESSION['callback'] = ($_GET['callback'])?$_GET['callback']:'/';
+		}
+		$oau = isset($_SESSION['oauthuser'])?$_SESSION['oauthuser']:'0';
+		if(intval($oau) > 1){
+			if(isset($_SESSION['openid'])){
+				unset($_SESSION['oauthuser']);
+				$callback_url = isset($_SESSION['callback'])?urlencode($_SESSION['callback']):'/';
+				return $this->redirect($callback_url);
+			}
+			if(intval($oau) > 4){//the more oauth error times;
+				unset($_SESSION['oauthuser']);
+				return $this->dataPrint(array('Oauth Error');
+			}
 		}
 		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/7e172a57-ee93-4d02-bc85-7c9b3fcd28cb");
 	}
