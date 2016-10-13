@@ -10,4 +10,9 @@ class ApiController extends Controller {
 		$_POST['openid'] = 'wwssssssssssssssssadawdawad';
 	}
 
+	public function demonloginAction() {
+		$_SESSION['openid'] = 'wwssssssssssssssssadawdawad';
+		return $this->Response('success');
+	}
+
 }

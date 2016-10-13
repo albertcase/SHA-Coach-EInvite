@@ -12,6 +12,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="Keywords" content="">
     <meta name="Description" content="...">
+    <script>
+var <?php print $awardcode;?>
+    </script>
 </head>
 <body>
 <strong>KKKKKKKKKKKKKKKKKKKKKKKKKK</strong><br>
