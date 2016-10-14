@@ -1,8 +1,8 @@
 //默认第一个显示focus
-    $(document).ready(function() {
+    //$(document).ready(function() {
         //$("#sn1").focus();
         //自动跳到下一个输入框
-        $("input[name^='sn']").each(function() {
+        $(".telArea li input[name^='sn']").each(function() {
             $(this).keyup(function(e) {
                 e = window.event || e;
                 var k = e.keyCode || e.which;
@@ -32,4 +32,4 @@
                     var len = $("#sn1").val().length + $("#sn2").val().length + $("#sn3").val().length + $("#sn4").val().length;
                     if (len == 16) device_verify();
                 });
-    });
+    //});
