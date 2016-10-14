@@ -52,7 +52,10 @@
 		<div class="modelcon ycenter">
 				<div class="telArea">
 					<img src="./vfile/img/text-2.png" width="100%" >
-					<ul>
+					<div class="telInput">
+						<input type="tel" maxlength="6" size="6">
+					</div>
+					<!-- <ul>
 						<li>
 							<input type="tel" maxlength="1" size="1">
 						</li>
@@ -71,7 +74,7 @@
 						<li>
 							<input type="tel" maxlength="1" size="1">
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 
 
@@ -123,10 +126,11 @@
 	var coachEinviteMethod = {
 		count: "<?php print $trytimes;?>",
 		getNum: function(){
-			var telLi = $(".telArea li");
-			return $.map(telLi, function(v, k){
-				return $(v).find("input").val();
-			}).join("");
+			// var telLi = $(".telArea li");
+			// return $.map(telLi, function(v, k){
+			// 	return $(v).find("input").val();
+			// }).join("");
+			return $(".telInput input").val();
 		},
 		btnShow: function(n){
 			$(".btn").removeClass("btnshow");
