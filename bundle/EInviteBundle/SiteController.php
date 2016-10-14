@@ -50,7 +50,7 @@ class SiteController extends Controller {
 		if($info->trytimes > 3){
 			$_trytimes = 0;
 		}else{
-			$_trytimes = intavl(3 - $info->trytimes);
+			$_trytimes = intval(3 - $info->trytimes);
 		}
 		if(!$info->awardcode)
 			return $this->render('registernumber', array('trytimes' => $_trytimes));
