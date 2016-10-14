@@ -42,7 +42,7 @@
 					<img src="./vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
 				</div>
 			</div>
-			<div class="qr-ctn" id="qr-base"></div>
+			<div class="qr-ctn" id="qrcodeCanvas"></div>
 		</div>
 
 	</div>
