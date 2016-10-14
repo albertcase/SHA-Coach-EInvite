@@ -1,0 +1,165 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    position: relative;
+    background: #000 url('../img/bg.jpg') no-repeat center top;
+    background-size: 100% auto;
+    text-align: center;
+}
+
+.ycenter{
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.dreambox{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    width: 80%;
+    height: 90%;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.logo{
+    display: inline-block;
+    margin: 10% 0 8% 0;
+}
+
+.telArea ul{
+    width: 80%;
+    position: relative;
+    margin: 8% 0;
+    display: inline-block;
+}
+
+.telArea ul li{
+    width: calc(100%/6);
+    float: left;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.telArea ul li input{
+    width: 90%;
+    border: 1px #e2e2e2 solid;
+    border-radius: 6%;
+    background: #fafafa;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+
+
+/* error 提示 */
+.modelcon{
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+.errorTips{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: -24%;
+    z-index: 2;
+    display: none;
+}
+
+.etcon{
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+.etcon h2{
+    font-size: 1.6rem;
+    padding: 0 0 12% 0;
+}
+
+
+.btnArea{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.btn{
+    margin: 18% 0;
+    position: relative;
+    display: none;
+}
+
+.btn a{
+    width: 42%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -21%;
+    z-index: 2;
+}
+
+.btn.btnshow{
+    display: inline-block;
+}
+
+.btn.disable{
+    opacity: .8;
+}
+
+/* 详细页面 */
+.infoCon{
+    width: 100%;
+    display: inline-block;
+}
+
+.infoText{
+    position: relative;
+} 
+
+.infoText a{
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    /*background: rgba(89, 90, 89, .6);*/
+    z-index: 2;
+}
+
+.qr-ctn{
+    margin: -6% 0 0 0;
+    display: inline-block;
+}
+
+
+
+
