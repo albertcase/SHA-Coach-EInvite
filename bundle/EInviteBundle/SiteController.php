@@ -6,10 +6,6 @@ use Core\Controller;
 
 class SiteController extends Controller {
 
-	public function __construct() {
-
-	}
-
 	public function oauth3Action(){
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
@@ -42,13 +38,23 @@ class SiteController extends Controller {
 	}
 
 	public function registercardAction() {
+		if(!isset($_SESSION['openid'])){
+			unset($_SESSION['oauthuser']);
+			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
+			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
+		}
 		$_db = new \Lib\DatabaseAPI();
 		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
 		if(!$info = $_db->findFileByOpenid($openid))
 			return $this->render('registernumber', array('trytimes' => '0'));
+		if($info->trytimes > 3){
+			$_trytimes = 0;
+		}else{
+			$_trytimes = intavl(3 - $info->trytimes);
+		}
 		if(!$info->awardcode)
-			return $this->render('registernumber', array('trytimes' => $info->trytimes));
-		return $this->render('awardcard', array('awardcode' => $info->awardcode));
+			return $this->render('registernumber', array('trytimes' => $_trytimes));
+		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
 
 	public function registernumberAction() {
@@ -56,7 +62,7 @@ class SiteController extends Controller {
 	}
 
 	public function awardcardAction() {
-		return $this->render('awardcard', array('awardcode' => 'wwwwwwwwwwwwwwwoooooooooooo'));
+		return $this->render('awardcard', array('awardcode' => 'wwwwwwwwwwwwwwwoooooooooooo','meettime' => 1));
 	}
 
 }
