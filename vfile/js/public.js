@@ -13,6 +13,7 @@ var pfun = {
         // self.ajaxFun("GET", "http://maxmara.samesamechina.com/sharetoken?url=" + shareArr["_url"], "", "jsonp", function(data){
         //     self.wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
         // });
+        alert(6);
         self.wxshareFun();
     },
     loadFn: function(arr , fn , fn2){
@@ -50,7 +51,6 @@ var pfun = {
         },3000);
     },
     wechatFun: function(_appId, _timestamp, _nonceStr, _signature){  //分享函数
-        alert(6);
         wx.config({
             debug: false,
             appId: _appId,
