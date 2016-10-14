@@ -6,15 +6,6 @@ use Core\Controller;
 
 class SiteController extends Controller {
 
-	public function oauth3Action(){
-		if(!isset($_SESSION['openid'])){
-			unset($_SESSION['oauthuser']);
-			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
-			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
-		}
-		return $this->dataPrint("\nsuccess");
-	}
-
 	public function oauth2Action(){
 		if(isset($_GET['openid']))
 			$_SESSION['openid'] = $_GET['openid'];
@@ -56,6 +47,16 @@ class SiteController extends Controller {
 			return $this->render('registernumber', array('trytimes' => $_trytimes));
 		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
+
+	public function oauth3Action(){
+		if(!isset($_SESSION['openid'])){
+			unset($_SESSION['oauthuser']);
+			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
+			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
+		}
+		return $this->dataPrint("\nsuccess");
+	}
+
 
 	public function registernumberAction() {
 		return $this->render('registernumber', array('trytimes' => 2));
