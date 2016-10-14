@@ -110,14 +110,16 @@
 
     pfun.loadingFnDoing(LoadingImg, function(){
     	if(coachEinviteMethod.count <= 0){
-    		coachEinviteMethod.errorFun(coachEinviteMethod.count);
+    		$(".errorTips .etcon em").html(coachEinviteMethod.count);
+    		coachEinviteMethod.btnShow();
+    		$(".errorTips").css({"visibility": "visible"});
     	}
     	$(".loading").css({"visibility": "hidden"});
     	pfun.init();
     })
 
 	var coachEinviteMethod = {
-		count: "1",
+		count: "0",
 		getNum: function(){
 			var telLi = $(".telArea li");
 			return $.map(telLi, function(v, k){
@@ -173,7 +175,7 @@
 	    if(data.code == 10){
 	    	location.href = "/"
 	    }else if(data.code == 9){
-	    	coachEinviteMethod.count ++;
+	    	coachEinviteMethod.count --;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    };
 
