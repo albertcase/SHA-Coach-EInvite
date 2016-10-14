@@ -54,22 +54,22 @@
 					<img src="./vfile/img/text-2.png" width="100%" >
 					<ul>
 						<li>
-							<input type="tel" maxlength="1" size="1" name="sn1" id="sn1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1" name="sn2" id="sn2">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1" name="sn3" id="sn3">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1" name="sn4" id="sn4">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1" name="sn5" id="sn5">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1" name="sn6" id="sn6">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 					</ul>
 				</div>
