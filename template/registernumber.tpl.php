@@ -176,10 +176,8 @@
 
 	    if(data.code == "10"){
 	    	window.location.href = "/"
-	    }else if(data.code == "9"){
-	    	coachEinviteMethod.count --;
-	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }else{
+	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }
 	    pfun.formErrorTips(data.msg);
 
