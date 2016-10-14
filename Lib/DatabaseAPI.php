@@ -42,7 +42,8 @@ class DatabaseAPI {
 			return 'B';//alread registered
 		$sql = "UPDATE `coach_award` SET `openid` = ?,`awardcode` = ? WHERE `callnumber` LIKE '%{$callnumber}'";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("ss", $openid,md5('openid'.$openid));
+		$code = $openid.md5('openid'.$openid);
+		$res->bind_param("ss", $openid,$code);
 		if($res->execute())
 			return 'C';//update success
 		return 'D';//update errors

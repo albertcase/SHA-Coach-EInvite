@@ -83,7 +83,7 @@
 					</div>
 				</div>
 
-			
+
 		</div>
 
 		<div class="btnArea">
@@ -131,7 +131,7 @@
 			$(".btn").removeClass("btnshow");
 			if(n){
 				$("." + n).addClass("btnshow");
-			}	
+			}
 		},
 		errorFun: function(n){
 			var errorText = "<h2>很抱歉</h2><p>该号码验证失败</p>";
@@ -162,17 +162,17 @@
 			pfun.ajaxFun("POST", "./api/submit", submitPushData, "json", submitCallback);
 		}
 	})
-	
+
 	$(".re-enter-btn").click(function(){
 		coachEinviteMethod.rewrite();
 	})
-	
-	
 
-	
+
+
+
 
 	function submitCallback(data){
-		
+
 	    if(data.code == 10){
 	    	location.href = "/"
 	    }else if(data.code == 9){
@@ -182,7 +182,7 @@
 
 	    pfun.formErrorTips(data.msg);
 
-	} 
+	}
 
 	
 

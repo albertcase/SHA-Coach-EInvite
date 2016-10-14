@@ -57,7 +57,6 @@ class SiteController extends Controller {
 		return $this->dataPrint("\nsuccess");
 	}
 
-
 	public function registernumberAction() {
 		return $this->render('registernumber', array('trytimes' => 2));
 	}

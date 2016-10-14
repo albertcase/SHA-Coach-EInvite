@@ -17,7 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="./vfile/css/style.css" />
 </head>
 <body ng-app="app">
-
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat"></script>
 <script src="./vfile/js/jquery.js"></script>
 <script src="./vfile/js/PxLoader.js"></script>
@@ -94,6 +93,7 @@
 	</div>
 </div>
 
+
 <script src="./vfile/js/inputfocus.js"></script>
 
 <script type="text/javascript">
@@ -115,6 +115,7 @@
     		coachEinviteMethod.btnShow();
     		$(".errorTips").css({"visibility": "visible"});
     	}
+
     	$(".loading").css({"visibility": "hidden"});
     	pfun.init();
     })
@@ -179,14 +180,10 @@
 	    	coachEinviteMethod.count --;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }else{
-	    	
-	    };
-
+	    }
 	    pfun.formErrorTips(data.msg);
 
 	}
-
-
 
 </script>
 

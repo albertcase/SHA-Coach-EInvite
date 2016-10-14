@@ -39,7 +39,11 @@
 			<div class="infoCon">
 				<div class="infoText">
 					<a href="tel:021-20676111"></a>
+<<<<<<< Updated upstream
 					<img src="./vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
+=======
+					<img src="./vfile/img/info.png" width="100%" >
+>>>>>>> Stashed changes
 				</div>
 			</div>
 			<div class="qr-ctn" id="qr-base"></div>
@@ -51,7 +55,13 @@
 
 <script type="text/javascript" src="./vfile/js/kaelQrcode.min.js"></script>
 <script>
+<<<<<<< Updated upstream
 	window.onload = function(){
+=======
+
+	window.onload = function(){
+    var time = "<?php print $meettime;?>";
+>>>>>>> Stashed changes
 		var kaelBase = new KaelQrcode();
 		kaelBase.init(document.getElementById("qr-base"), {
 			text : "<?php print $awardcode;?>",
