@@ -1,18 +1,19 @@
 var shareArr = {
-    "_title": 'maxmara 分享标题 -- 测试', //分享标题
-    "_desc": "maxmara 分享朋友圈的描述 -- 测试",    // 分享朋友圈的描述
-    "_desc_friend": "maxmara 分享好友的描述 -- 测试",    // 分享好友的描述
+    "_title": '“品革新·致匠心”VIP鉴赏会邀请函', //分享标题
+    "_desc": "诚邀您莅临“品革新·致匠心”VIP鉴赏会邀请函",    // 分享朋友圈的描述
+    "_desc_friend": "诚邀您莅临“品革新·致匠心”VIP鉴赏会邀请函",    // 分享好友的描述
     "_link": window.location.href,    //分享的连接
-    "_imgUrl": "http://" + window.location.host + "/vstyle/fasttrack/img/share.jpg",   //分享的图片
+    "_imgUrl": "http://" + window.location.host + "/vfile/img/share.png",   //分享的图片
     "_url": encodeURIComponent(window.location)//encodeURIComponent(window.location.href.split("#")[0]) //.replace('http%3A%2F%2F','')
 }
 
 var pfun = {
     init: function(){
         var self = this;
-        self.ajaxFun("GET", "http://maxmara.samesamechina.com/sharetoken?url=" + shareArr["_url"], "", "jsonp", function(data){
-            self.wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
-        });
+        // self.ajaxFun("GET", "http://maxmara.samesamechina.com/sharetoken?url=" + shareArr["_url"], "", "jsonp", function(data){
+        //     self.wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
+        // });
+        self.wxshareFun();
     },
     loadFn: function(arr , fn , fn2){
         var loader = new PxLoader();
@@ -153,15 +154,15 @@ var pfun = {
             loadCallback();
             
         } , function (p){
-            $(".loading em").html(p);
-            //console.log(p);
+            //$(".loading em").html(p);
+            console.log(p);
         });
     }
 
 }
 
 
-pfun.init();
+
 
 
 

@@ -18,7 +18,7 @@
 </head>
 <body ng-app="app">
 
-<script src="./vfile/js/jweixin-1.0.0.js"></script>
+<script src="./vfile/js/jweixin.js"></script>
 <script src="./vfile/js/jquery.js"></script>
 <script src="./vfile/js/PxLoader.js"></script>
 <script src="./vfile/js/public.js"></script>
@@ -53,22 +53,22 @@
 					<img src="./vfile/img/text-2.png" width="100%" >
 					<ul>
 						<li>
-							<input type="tel" maxlength="1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1">
+							<input type="tel" maxlength="1" size="1">
 						</li>
 					</ul>
 				</div>
@@ -95,8 +95,24 @@
 
 
 <script type="text/javascript">
+	var LoadingImg = [
+        "/vfile/img/bg.jpg",
+        "/vfile/img/info.png",
+        "/vfile/img/logo.png",
+        "/vfile/img/re-enter-btn.png",
+        "/vfile/img/receive-btn.png",
+        "/vfile/img/share.png",
+        "/vfile/img/text-1.png",
+        "/vfile/img/text-2.png",
+    ];
+
+    pfun.loadingFnDoing(LoadingImg, function(){
+    	$(".loading").css({"visibility": "hidden"});
+    	pfun.init();
+    })
+
 	var coachEinviteMethod = {
-		count: "3",
+		count: "1",
 		getNum: function(){
 			var telLi = $(".telArea li");
 			return $.map(telLi, function(v, k){
@@ -118,7 +134,11 @@
 				$(".errorTips .etcon em").html(n);
 				this.btnShow('re-enter-btn');
 			}
-			$(".errorTips").show();
+			$(".errorTips").css({"visibility": "visible"});
+		},
+		rewrite: function(){
+			$(".errorTips").css({"visibility": "hidden"});
+			this.btnShow('receive-btn');
 		}
 	}
 
@@ -133,10 +153,11 @@
 			}
 			pfun.ajaxFun("POST", "./api/submit", submitPushData, "json", submitCallback);
 		}
-		
-
 	})
 	
+	$(".re-enter-btn").click(function(){
+		coachEinviteMethod.rewrite();
+	})
 	
 	
 
@@ -147,7 +168,7 @@
 	    if(data.code == 10){
 	    	location.href = "/"
 	    }else if(data.code == 9){
-	    	coachEinviteMethod.count --;
+	    	coachEinviteMethod.count ++;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    };
 

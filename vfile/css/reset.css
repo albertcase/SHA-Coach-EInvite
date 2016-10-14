@@ -133,7 +133,7 @@ textarea::-webkit-input-placeholder {
     background: #fff;
     z-index: 10;
     margin: -27% 0 0 -40%;
-    display: none;
+    visibility: visible;
 }
 
 .spinner{
