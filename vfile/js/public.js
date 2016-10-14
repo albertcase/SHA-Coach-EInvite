@@ -80,6 +80,7 @@ var pfun = {
     },
     wxshareFun: function(){  //分享信息重置函数
         alert(6);
+        wx.ready(function () {
             alert(shareArr._title);
             // 在这里调用 API
             // 2. 分享接口
@@ -127,6 +128,7 @@ var pfun = {
                     //   alert(JSON.stringify(res));
                 }
             });
+        }); //end of wx.ready
     },
     ajaxFun: function(ajaxType, ajaxUrl, ajaxData, ajaxDataType, ajaxCallback){
        $.ajax({
