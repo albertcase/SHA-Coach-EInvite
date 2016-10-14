@@ -55,9 +55,9 @@
     var time = "<?php print $meettime;?>";
 
 		jQuery('#qrcodeCanvas').qrcode({
-			text: "<?php print $awardcode;?>",
-			width: 80,
-			height: 80
+		    text: "<?php print $awardcode;?>",
+			width: 100,
+			height: 100
 		});
 
 		pfun.init();
