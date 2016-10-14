@@ -109,6 +109,9 @@
     ];
 
     pfun.loadingFnDoing(LoadingImg, function(){
+    	if(coachEinviteMethod.count <= 0){
+    		coachEinviteMethod.errorFun(coachEinviteMethod.count);
+    	}
     	$(".loading").css({"visibility": "hidden"});
     	pfun.init();
     })
@@ -178,7 +181,7 @@
 
 	} 
 
-	coachEinviteMethod.errorFun(coachEinviteMethod.count);
+	
 
 </script>
 
