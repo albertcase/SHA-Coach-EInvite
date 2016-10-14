@@ -50,6 +50,7 @@ var pfun = {
         },3000);
     },
     wechatFun: function(_appId, _timestamp, _nonceStr, _signature){  //分享函数
+        alert(6);
         wx.config({
             debug: false,
             appId: _appId,
@@ -85,7 +86,7 @@ var pfun = {
             // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
 
             wx.onMenuShareAppMessage({
-                title: " ",
+                title: shareArr._title,
                 desc: shareArr._desc_friend,
                 link: shareArr._link,
                 imgUrl: shareArr._imgUrl,
