@@ -177,6 +177,7 @@
 	    if(data.code == "10"){
 	    	window.location.href = "/"
 	    }else{
+	    	coachEinviteMethod.count--;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }
 	    pfun.formErrorTips(data.msg);
