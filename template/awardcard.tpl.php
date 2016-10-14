@@ -49,14 +49,15 @@
 </div>
 
 
-<script type="text/javascript" src="./vfile/js/kaelQrcode.min.js"></script>
+<script type="text/javascript" src="./vfile/js/jquery.qrcode.min.js"></script>
 <script>
 	window.onload = function(){
     var time = "<?php print $meettime;?>";
-		var kaelBase = new KaelQrcode();
-		kaelBase.init(document.getElementById("qr-base"), {
-			text : "<?php print $awardcode;?>",
-			size: 72
+
+		jQuery('#qrcodeCanvas').qrcode({
+			text: "<?php print $awardcode;?>",
+			width: 80,
+			height: 80
 		});
 
 		pfun.init();
