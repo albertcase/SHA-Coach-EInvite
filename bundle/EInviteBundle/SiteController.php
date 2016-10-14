@@ -6,10 +6,6 @@ use Core\Controller;
 
 class SiteController extends Controller {
 
-	public function __construct() {
-
-	}
-
 	public function oauth3Action(){
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
@@ -42,6 +38,11 @@ class SiteController extends Controller {
 	}
 
 	public function registercardAction() {
+		if(!isset($_SESSION['openid'])){
+			unset($_SESSION['oauthuser']);
+			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
+			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
+		}
 		$_db = new \Lib\DatabaseAPI();
 		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
 		if(!$info = $_db->findFileByOpenid($openid))

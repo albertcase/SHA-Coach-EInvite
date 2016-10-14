@@ -39,7 +39,7 @@
 			<div class="infoCon">
 				<div class="infoText">
 					<a href="tel:021-20676111"></a>
-					<img src="./vfile/img/info-1.png" width="100%" >
+					<img src="./vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
 				</div>
 			</div>
 			<div class="qr-ctn" id="qr-base"></div>
