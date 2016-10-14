@@ -44,7 +44,6 @@ class SiteController extends Controller {
 			$_trytimes = intval(3 - $info->trytimes);
 		}
 		if(!$info->awardcode)
-<<<<<<< Updated upstream
 			return $this->render('registernumber', array('trytimes' => $_trytimes));
 		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
@@ -56,23 +55,14 @@ class SiteController extends Controller {
 			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
 		}
 		return $this->dataPrint("\nsuccess");
-=======
-			return $this->render('registernumber', array('trytimes' => $info->trytimes));
-		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
->>>>>>> Stashed changes
 	}
-
 
 	public function registernumberAction() {
 		return $this->render('registernumber', array('trytimes' => 2));
 	}
 
 	public function awardcardAction() {
-<<<<<<< Updated upstream
 		return $this->render('awardcard', array('awardcode' => 'wwwwwwwwwwwwwwwoooooooooooo','meettime' => 1));
-=======
-		return $this->render('awardcard', array('awardcode' => 'wwwwwwwwwwwwwwwoooooooooooo','meettime' => '1'));
->>>>>>> Stashed changes
 	}
 
 }
