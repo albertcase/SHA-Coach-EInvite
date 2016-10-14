@@ -46,9 +46,14 @@ class SiteController extends Controller {
 		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
 		if(!$info = $_db->findFileByOpenid($openid))
 			return $this->render('registernumber', array('trytimes' => '0'));
+		if($info->trytimes > 3){
+			$_trytimes = 0;
+		}else{
+			$_trytimes = intavl(3 - $info->trytimes);
+		}
 		if(!$info->awardcode)
-			return $this->render('registernumber', array('trytimes' => $info->trytimes));
-		return $this->render('awardcard', array('awardcode' => $info->awardcode));
+			return $this->render('registernumber', array('trytimes' => $_trytimes));
+		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
 
 	public function registernumberAction() {
@@ -56,7 +61,7 @@ class SiteController extends Controller {
 	}
 
 	public function awardcardAction() {
-		return $this->render('awardcard', array('awardcode' => 'wwwwwwwwwwwwwwwoooooooooooo'));
+		return $this->render('awardcard', array('awardcode' => 'wwwwwwwwwwwwwwwoooooooooooo','meettime' => 1));
 	}
 
 }

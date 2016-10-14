@@ -17,16 +17,17 @@ class DatabaseAPI {
 	}
 
 	public function findFileByOpenid($openid){
-		$sql = "SELECT coach_userinfo.trytimes,coach_award.awardcode FROM coach_userinfo LEFT JOIN coach_award ON coach_award.openid = coach_userinfo.openid WHERE coach_userinfo.openid = ?";
+		$sql = "SELECT coach_userinfo.trytimes,coach_award.awardcode,coach_award.meettime FROM coach_userinfo LEFT JOIN coach_award ON coach_award.openid = coach_userinfo.openid WHERE coach_userinfo.openid = ?";
 		// $sql = "SELECT `awardcode`, FROM `coach_einvite` WHERE `openid` = ?";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $openid);
 		$res->execute();
-		$res->bind_result($trytimes,$awardcode);
+		$res->bind_result($trytimes,$awardcode,$meettime);
 		if($res->fetch()) {
 			$result = new \stdClass();
 			$result->trytimes = $trytimes;
 			$result->awardcode = $awardcode;
+			$result->meettime = $meettime;
 			return $result;
 		}
 		return false;
