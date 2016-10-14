@@ -13,7 +13,6 @@ var pfun = {
         // self.ajaxFun("GET", "http://maxmara.samesamechina.com/sharetoken?url=" + shareArr["_url"], "", "jsonp", function(data){
         //     self.wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
         // });
-        alert(6);
         self.wxshareFun();
     },
     loadFn: function(arr , fn , fn2){
@@ -80,7 +79,9 @@ var pfun = {
         this.wxshareFun();
     },
     wxshareFun: function(){  //分享信息重置函数
+        alert(6);
         wx.ready(function () {
+            alert(7);
             // 在这里调用 API
             // 2. 分享接口
             // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
