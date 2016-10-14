@@ -18,7 +18,11 @@
 </head>
 <body ng-app="app">
 
+<<<<<<< Updated upstream
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat"></script>
+=======
+<script src="./vfile/js/jweixin.js"></script>
+>>>>>>> Stashed changes
 <script src="./vfile/js/jquery.js"></script>
 <script src="./vfile/js/PxLoader.js"></script>
 <script src="./vfile/js/public.js"></script>
@@ -55,6 +59,7 @@
 					<img src="./vfile/img/text-2.png" width="100%" >
 					<ul>
 						<li>
+<<<<<<< Updated upstream
 							<input type="tel" maxlength="1" size="1" name="sn1" id="sn1">
 						</li>
 						<li>
@@ -71,6 +76,24 @@
 						</li>
 						<li>
 							<input type="tel" maxlength="1" size="1" name="sn6" id="sn6">
+=======
+							<input type="tel" maxlength="1" size="1">
+						</li>
+						<li>
+							<input type="tel" maxlength="1" size="1">
+						</li>
+						<li>
+							<input type="tel" maxlength="1" size="1">
+						</li>
+						<li>
+							<input type="tel" maxlength="1" size="1">
+						</li>
+						<li>
+							<input type="tel" maxlength="1" size="1">
+						</li>
+						<li>
+							<input type="tel" maxlength="1" size="1">
+>>>>>>> Stashed changes
 						</li>
 					</ul>
 				</div>
@@ -94,13 +117,21 @@
 	</div>
 </div>
 
+<<<<<<< Updated upstream
 <script src="./vfile/js/inputfocus.js"></script>
+=======
+
+>>>>>>> Stashed changes
 
 <script type="text/javascript">
 	var LoadingImg = [
         "/vfile/img/bg.jpg",
+<<<<<<< Updated upstream
         "/vfile/img/info-1.png",
         "/vfile/img/info-2.png",
+=======
+        "/vfile/img/info.png",
+>>>>>>> Stashed changes
         "/vfile/img/logo.png",
         "/vfile/img/re-enter-btn.png",
         "/vfile/img/receive-btn.png",
@@ -110,17 +141,24 @@
     ];
 
     pfun.loadingFnDoing(LoadingImg, function(){
+<<<<<<< Updated upstream
     	if(coachEinviteMethod.count <= 0){
     		$(".errorTips .etcon em").html(coachEinviteMethod.count);
     		coachEinviteMethod.btnShow();
     		$(".errorTips").css({"visibility": "visible"});
     	}
+=======
+>>>>>>> Stashed changes
     	$(".loading").css({"visibility": "hidden"});
     	pfun.init();
     })
 
 	var coachEinviteMethod = {
+<<<<<<< Updated upstream
 		count: "<?php print $trytimes;?>",
+=======
+		count: '<?php print $trytimes;?>',
+>>>>>>> Stashed changes
 		getNum: function(){
 			var telLi = $(".telArea li");
 			return $.map(telLi, function(v, k){
@@ -173,6 +211,7 @@
 
 	function submitCallback(data){
 
+<<<<<<< Updated upstream
 	    if(data.code == "10"){
 	    	window.location.href = "/"
 	    }else if(data.code == "9"){
@@ -180,14 +219,24 @@
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }else{
 	    	
+=======
+	    if(data.code == 10){
+	    	location.href = "/"
+	    }else if(data.code == 9){
+	    	coachEinviteMethod.count ++;
+	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
+>>>>>>> Stashed changes
 	    };
 
 	    pfun.formErrorTips(data.msg);
 
 	}
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 </script>
 
 
