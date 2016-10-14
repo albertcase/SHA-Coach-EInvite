@@ -29,9 +29,8 @@ class ApiController extends Controller {
 
 	public function registerAction(){
 		$data = array(
-			'callback_url' => 'http://vipinvitation.samesamechina.com/api/userinfocallback',
-			'redirect_url' => 'http://vipinvitation.samesamechina.com/oauth2',
-			"scope" => "userinfo"
+			'name' => 'jssdk for coach_einvite',
+			'domain' => 'http://vipinvitation.samesamechina.com'
 		);
 		// $data = array(
 		// 	'code' => 200,
@@ -41,7 +40,7 @@ class ApiController extends Controller {
 		// 		'headimgurl' => 'asdasdasdasdasdasdasd'
 		// 	)
 		// );
-		print_r($_SERVER);
+		// print_r($_SERVER);
 		return $this->dataPrint($data);
 	}
 

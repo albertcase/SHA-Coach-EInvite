@@ -33,7 +33,7 @@ class DatabaseAPI {
 	}
 
 	public function registerAward($openid,$callnumber){
-		if($this->insertTry($openid) == 'A')
+		if($this->insertTry($openid) === 'A')
 			return 'E';//not have this openid
 		if(!$res = $this->checkCallnumber($callnumber))
 			return 'A';//not have this callnumber;
