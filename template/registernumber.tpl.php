@@ -55,22 +55,22 @@
 					<img src="./vfile/img/text-2.png" width="100%" >
 					<ul>
 						<li>
-							<input type="tel" maxlength="1" size="1">
+							<input type="tel" maxlength="1" size="1" name="sn1" id="sn1">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1">
+							<input type="tel" maxlength="1" size="1" name="sn2" id="sn2">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1">
+							<input type="tel" maxlength="1" size="1" name="sn3" id="sn3">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1">
+							<input type="tel" maxlength="1" size="1" name="sn4" id="sn4">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1">
+							<input type="tel" maxlength="1" size="1" name="sn5" id="sn5">
 						</li>
 						<li>
-							<input type="tel" maxlength="1" size="1">
+							<input type="tel" maxlength="1" size="1" name="sn6" id="sn6">
 						</li>
 					</ul>
 				</div>
@@ -94,7 +94,7 @@
 	</div>
 </div>
 
-
+<script src="./vfile/js/inputfocus.js"></script>
 
 <script type="text/javascript">
 	var LoadingImg = [
@@ -173,11 +173,13 @@
 
 	function submitCallback(data){
 
-	    if(data.code == 10){
-	    	location.href = "/"
-	    }else if(data.code == 9){
+	    if(data.code == "10"){
+	    	window.location.href = "/"
+	    }else if(data.code == "9"){
 	    	coachEinviteMethod.count --;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
+	    }else{
+	    	
 	    };
 
 	    pfun.formErrorTips(data.msg);
