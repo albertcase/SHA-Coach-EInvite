@@ -138,6 +138,7 @@ body{
 /* 详细页面 */
 .infoCon{
     width: 100%;
+    margin: 6% 0;
     display: inline-block;
 }
 
@@ -156,10 +157,33 @@ body{
 }
 
 .qr-ctn{
-    margin: -6% 0 0 0;
     display: inline-block;
 }
 
 
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+    
+}
+
+/* 5s */
+@media handheld and (min-height:490px),screen and (max-height:510px) {
+    
+}
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+    .logo{
+        display: inline-block;
+        margin: 8% 0 6% 0;
+    }
+}
 
 
