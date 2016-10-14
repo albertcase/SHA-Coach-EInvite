@@ -27,6 +27,11 @@ CREATE TABLE `coach_award` (
   `openid` varchar(100) DEFAULT NULL,
   `awardcode` varchar(100) DEFAULT NULL,
   `callnumber` varchar(50) DEFAULT NULL,
+  `meettime` enum('1','2') NOT NULL DEFAULT '1' COMMENT '用户场次.1,1.30，2,3.30',
+  `meetstatus` enum('0','1') NOT NULL DEFAULT '0' COMMENT '进场状态.0,没有进入.1,已经进入',
+  `dinnerstatus` enum('0','1') NOT NULL DEFAULT '0' COMMENT '晚宴状态.0,没有进入.1,已经进入',
+  `meettime` varchar(50) DEFAULT NULL,
+  `dinnertime` varchar(50) DEFAULT NULL,
   `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
