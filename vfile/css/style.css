@@ -34,7 +34,6 @@ body{
 .container{
     width: 80%;
     height: 90%;
-    min-height: 300px;
     background: #fff;
     position: relative;
     display: inline-block;
@@ -64,7 +63,7 @@ body{
     font-size: 1.6rem;
     letter-spacing: 1.2rem; 
     text-align:center;
-    text-indent: 1.5rem;
+    text-indent: 1.2rem;
 }
 
 
@@ -100,7 +99,7 @@ body{
 
 
 .btnArea{
-    position: absolute;
+    position: static;
     left: 0;
     bottom: 0;
     width: 100%;
