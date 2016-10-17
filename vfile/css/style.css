@@ -45,6 +45,10 @@ body{
     margin: 10% 0 8% 0;
 }
 
+.telArea{
+    margin: 0 0 16% 0;
+}
+
 .telInput{
     width: 80%;
     position: relative;
@@ -102,7 +106,7 @@ body{
 .btnArea{
     position: relative;
     left: 0;
-    bottom: 6em;
+    bottom: 15em;
     width: 100%;
     z-index: 2;
 }
@@ -194,7 +198,7 @@ body{
     }
 
     .btnArea{
-        bottom: 5em;
+        bottom: 12em;
     }
 }
 
