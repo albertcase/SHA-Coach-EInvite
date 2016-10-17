@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./vfile/css/style.css" />
 </head>
 <body ng-app="app">
-<script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat"></script>
+<script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat?v=001"></script>
 <script src="./vfile/js/jquery.js"></script>
 <script src="./vfile/js/PxLoader.js"></script>
 

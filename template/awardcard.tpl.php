@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<script src="./vfile/js/jweixin.js"></script>
+<script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat?v=001"></script>
 <script src="./vfile/js/jquery.js"></script>
 
 <!-- 横屏代码 -->
