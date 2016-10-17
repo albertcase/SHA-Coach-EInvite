@@ -51,7 +51,7 @@
 				<div class="telArea">
 					<img src="./vfile/img/text-2.png" width="100%" >
 					<div class="telInput">
-						<input type="tel" maxlength="6" size="6">
+						<input type="tel" maxlength="4" size="4">
 					</div>
 					<!-- <ul>
 						<li>

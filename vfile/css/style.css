@@ -52,12 +52,12 @@ body{
 .telInput{
     width: 80%;
     position: relative;
-    margin: 8% 0;
+    margin: 9% 0;
     display: inline-block;
 }
 
 .telInput input{
-    width: 80%;
+    width: 70%;
     border: 1px #e2e2e2 solid;
     border-radius: 2%;
     background: #fafafa;
@@ -69,6 +69,7 @@ body{
     letter-spacing: 1.2rem; 
     text-align:center;
     text-indent: 1.2rem;
+    color: #333;
 }
 
 
@@ -158,7 +159,7 @@ body{
 
 .qr-ctn{
     display: inline-block;
-    margin: 0 0 8% 0;
+    margin: 0 0 10% 0;
 }
 
 
