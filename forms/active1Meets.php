@@ -3,7 +3,7 @@ namespace forms;
 
 use Core\FormRequest;
 
-class activeMeets extends FormRequest{
+class active1Meets extends FormRequest{
   public function rule(){
     return array(
       'awardcode' => array('awardcode' => array()),

@@ -88,7 +88,72 @@
 **param:**
 
 	{
-		callnumber: '123456'
+		awardcode: '123456'
 	}
 
 **feedbacks:**
+
+	{
+		code: '10',
+		msg: '获取成功'
+	}
+	{
+		code: '9',
+		msg: '获取失败'
+	}
+	{
+		code: '11',
+		msg: '输入错误'
+	}
+	
+###活动签到13：30
+**url:** /api/guestinfo
+
+**Method:** POST
+
+**param:**
+
+	{
+		awardcode: '123456'
+	}
+
+**feedbacks:**
+
+	{
+		code: '10',
+		msg: '获取成功'
+	}
+	{
+		code: '9',
+		msg: '获取失败'
+	}
+	{
+		code: '11',
+		msg: '输入错误'
+	}
+	
+###活动签到15：30
+**url:** /api/loginmeets
+
+**Method:** POST
+
+**param:**
+
+	{
+		awardcode: '123456'
+	}
+
+**feedbacks:**
+
+	{
+		code: '10',
+		msg: '活动签到成功'
+	}
+	{
+		code: '9',
+		msg: '活动签到失败'
+	}
+	{
+		code: '11',
+		msg: '输入错误'
+	}
