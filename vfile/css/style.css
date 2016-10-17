@@ -110,7 +110,7 @@ body{
 .btnArea{
     position: relative;
     left: 0;
-    bottom: 15em;
+    bottom: 16em;
     width: 100%;
     z-index: 3;
 }
