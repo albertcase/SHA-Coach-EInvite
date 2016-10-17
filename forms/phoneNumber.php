@@ -32,7 +32,7 @@ class phoneNumber extends FormRequest{
     if($result == 'A')
       return array('code' => '9' ,'msg' => '号码不存在');
     if($result == 'B')
-      return array('code' => '8' ,'msg' => '号码已经被注册');
+      return array('code' => '8' ,'msg' => '该号码已领取电子邀请函');
     if($result == 'C')
       return array('code' => '10' ,'msg' => '注册成功');
     if($result == 'E')
@@ -41,6 +41,6 @@ class phoneNumber extends FormRequest{
   }
 
   public function callnumber_Ckeck($key){
-    return (bool)preg_match("/^[0-9]{6}+$/" ,trim($key));
+    return (bool)preg_match("/^[0-9]{4}+$/" ,trim($key));
   }
 }

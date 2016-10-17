@@ -76,3 +76,19 @@
 		code: '4',
 		msg: '注册错误'
 	}
+	
+	
+	
+	
+###获取用户信息
+**url:** /api/guestinfo
+
+**Method:** POST
+
+**param:**
+
+	{
+		callnumber: '123456'
+	}
+
+**feedbacks:**
