@@ -157,7 +157,7 @@
 
 
 	$(".receive-btn").click(function(){
-		var _gn = coachEinviteMethod.getNum();
+		var _gn = coachEinviteMethod.getNum().replace(/\s/ig,'');
 		if(_gn.length != 6){
 			pfun.formErrorTips("请输入您手机的后六位验证！");
 		}else{
