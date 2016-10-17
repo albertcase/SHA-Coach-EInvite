@@ -25,7 +25,8 @@ class SiteController extends Controller {
 			}
 		}
 		$_SESSION['oauthuser'] = intval($oau)+1;
-		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/7e172a57-ee93-4d02-bc85-7c9b3fcd28cb");
+		// return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/7e172a57-ee93-4d02-bc85-7c9b3fcd28cb");//userinfo
+		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/00e04201-01ae-4e1d-b8f4-d5b10f1f6f11");//base
 	}
 
 	public function registercardAction() {

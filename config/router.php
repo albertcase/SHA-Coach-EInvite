@@ -11,4 +11,7 @@ $routers['/api/demonlogin'] = array('EInviteBundle\Api', 'demonlogin');
 $routers['/api/submit'] = array('EInviteBundle\Api', 'submit');
 $routers['/api/userinfocallback'] = array('EInviteBundle\Api', 'userinfocallback');
 $routers['/api/register'] = array('EInviteBundle\Api', 'register');
+$routers['/api/logindinner'] = array('EInviteBundle\Api', 'logindinner');
+$routers['/api/loginmeets'] = array('EInviteBundle\Api', 'loginmeets');
+$routers['/api/guestinfo'] = array('EInviteBundle\Api', 'guestinfo');
 // $routers['/test/%/aa/%'] = array('EInviteBundle\Site', 'test');

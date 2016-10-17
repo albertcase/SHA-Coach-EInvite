@@ -115,6 +115,43 @@ class DatabaseAPI {
 		}
 		return false;
 	}
+
+	public function checkinActive($code){
+		$sql = "SELECT `openid`,`awardcode`,`callnumber`,`meettime`,`meetstatus`,`dinnerstatus` FROM `coach_award` WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $code);
+		$res->execute();
+		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meetstatus,$dinnerstatus);
+		if($res->fetch()) {
+			$result = new \stdClass();
+			$result->openid = $openid;
+			$result->awardcode = $awardcode;
+			$result->callnumber = $callnumber;
+			$result->meettime = $meettime;
+			$result->meetstatus = $meetstatus;
+			$result->dinnerstatus = $dinnerstatus;
+			return $result;
+		}
+		return false;
+	}
+
+	public function activeMeets($awardcode){
+		$sql = "UPDATE `coach_award` SET `meetstatus` = 1 ,`inmeettime` = ? WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("ss", time(),$awardcode);
+		if($res->execute())
+			return true;
+		return false;
+	}
+
+	public function activeDinners($awardcode){
+		$sql = "UPDATE `coach_award` SET `dinnerstatus` = 1 ,`indinnertime` = ? WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("ss", time(),$awardcode);
+		if($res->execute())
+			return true;
+		return false;
+	}
 	//////
 
 	public function watchdog($type, $data){
