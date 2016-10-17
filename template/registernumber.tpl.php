@@ -178,14 +178,13 @@
 
 	function submitCallback(data){
 
-	    if(data.code == "10"){
+	    if(data.code == "10" || data.code == "6"){
 	    	window.location.href = "/"
-	    }else if(data.code == "8"){
-
 	    }else{
-				if(data.code != "8")
-	    		coachEinviteMethod.count--;
-	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
+			if(data.code != "8"){
+				coachEinviteMethod.count--;
+	    		coachEinviteMethod.errorFun(coachEinviteMethod.count);
+			}
 	    }
 	    pfun.formErrorTips(data.msg);
 
