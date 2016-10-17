@@ -97,9 +97,9 @@
 </div>
 
 
-<script src="./vfile/js/inputfocus.js"></script>
-
 <script type="text/javascript">
+	pfun.init();
+
 	var LoadingImg = [
         "/vfile/img/bg.jpg",
         "/vfile/img/info-1.png",
@@ -120,7 +120,6 @@
     	}
 
     	$(".loading").css({"visibility": "hidden"});
-    	pfun.init();
     })
 
 	var coachEinviteMethod = {
