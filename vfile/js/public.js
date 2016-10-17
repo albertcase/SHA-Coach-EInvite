@@ -76,7 +76,7 @@ var pfun = {
         this.wxshareFun();
     },
     wxshareFun: function(){  //分享信息重置函数
-        wx.config({"debug": true}); 
+        //wx.config({"debug": true}); 
         wx.ready(function () {
             // 在这里调用 API
             // 2. 分享接口
