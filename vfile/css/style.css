@@ -77,8 +77,11 @@ body{
 .modelcon{
     width: 100%;
     height: 66%;
-    overflow: auto;
     position: relative;
+}
+
+#conscroll{
+    overflow: auto;
 }
 
 .errorTips{
