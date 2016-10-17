@@ -169,3 +169,4 @@ document.body.addEventListener('touchmove', function(evt) {
 });
 
 
+pfun.init();

@@ -98,7 +98,6 @@
 
 
 <script type="text/javascript">
-	pfun.init();
 
 	var LoadingImg = [
         "/vfile/img/bg.jpg",
