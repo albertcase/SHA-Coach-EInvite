@@ -139,6 +139,10 @@ body{
     opacity: .8;
 }
 
+.btn.disable a{
+    background: url('../img/loading.gif') no-repeat center;
+}
+
 /* 详细页面 */
 .infoCon{
     width: 100%;
