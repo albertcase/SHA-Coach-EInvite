@@ -16,6 +16,13 @@ class SiteController extends Controller {
 		if(intval($oau) > 1){
 			if(isset($_SESSION['openid'])){
 				unset($_SESSION['oauthuser']);
+				$insql = array(
+					'openid' => isset($_SESSION['openid'])?$_SESSION['openid']:'',
+					'nickname' => '',
+					'headimgurl' => '',
+				);
+				$_db = new \Lib\DatabaseAPI();
+				$_db->insertNewUser($insql);
 				$callback_url = isset($_SESSION['callback'])?urldecode($_SESSION['callback']):'/';
 				return $this->redirect($callback_url);
 			}

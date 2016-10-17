@@ -121,26 +121,74 @@ class DatabaseAPI {
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $code);
 		$res->execute();
-		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meetstatus,$dinnerstatus);
+		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meet1status,$meet2status,$dinnerstatus);
 		if($res->fetch()) {
 			$result = new \stdClass();
 			$result->openid = $openid;
 			$result->awardcode = $awardcode;
 			$result->callnumber = $callnumber;
 			$result->meettime = $meettime;
-			$result->meetstatus = $meetstatus;
+			$result->meet1status = $meet1status;
+			$result->meet2status = $meet2status;
 			$result->dinnerstatus = $dinnerstatus;
 			return $result;
 		}
 		return false;
 	}
 
-	public function activeMeets($awardcode){
-		$sql = "UPDATE `coach_award` SET `meetstatus` = 1 ,`inmeettime` = ? WHERE `awardcode` = ? ";
+	public function active1Meets($awardcode){
+		if(!$status = $this->ckeckMeet1status($awardcode))
+			return false;
+		$ms = 0;
+		if(!$status->meet1status)
+			$ms = 1;
+		$sql = "UPDATE `coach_award` SET `meet1status` = {$ms} ,`inmeettime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("ss", time(),$awardcode);
 		if($res->execute())
 			return true;
+		return false;
+	}
+
+	public function active2Meets($awardcode){
+		if(!$status = $this->ckeckMeet2status($awardcode))
+			return false;
+		$ms = 0;
+		if(!$status->meet2status)
+			$ms = 1;
+		$sql = "UPDATE `coach_award` SET `meet2status` = {$ms} ,`inmeettime` = ? WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("ss", time(),$awardcode);
+		if($res->execute())
+			return true;
+		return false;
+	}
+
+	public function ckeckMeet1status($awardcode){
+		$sql = "SELECT `meet1status` FROM `coach_award` WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $awardcode);
+		$res->execute();
+		$res->bind_result($meet1status);
+		if($res->fetch()) {
+			$result = new \stdClass();
+			$result->meet1status = $meet1status;
+			return $result;
+		}
+		return false;
+	}
+
+	public function ckeckMeet2status($awardcode){
+		$sql = "SELECT `meet2status` FROM `coach_award` WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $awardcode);
+		$res->execute();
+		$res->bind_result($meet2status);
+		if($res->fetch()) {
+			$result = new \stdClass();
+			$result->meet2status = $meet2status;
+			return $result;
+		}
 		return false;
 	}
 
