@@ -148,6 +148,7 @@
 		rewrite: function(){
 			$(".errorTips").css({"visibility": "hidden"});
 			this.btnShow('receive-btn');
+			$(".telInput input").val("");
 		}
 	}
 
