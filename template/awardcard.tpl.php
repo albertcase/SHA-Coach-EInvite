@@ -34,7 +34,7 @@
 	<div class="container">
 		<img src="./vfile/img/logo.png" width="100%" alt="coach" class="logo">
 		<img src="./vfile/img/text-1.png" width="100%" >
-		<div class="modelcon">
+		<div class="modelcon" id="conscroll">
 			<div class="infoCon">
 				<div class="infoText">
 					<a href="tel:021-20676111"></a>
@@ -42,6 +42,7 @@
 				</div>
 			</div>
 			<div class="qr-ctn" id="qrcodeCanvas"></div>
+			<img src="./vfile/img/jpTips.png" width="100%" >
 		</div>
 
 	</div>
@@ -58,6 +59,8 @@
 			width: 100,
 			height: 100
 		});
+
+		pfun.overscroll(document.querySelector('#conscroll'));
 
 	}
 	</script>

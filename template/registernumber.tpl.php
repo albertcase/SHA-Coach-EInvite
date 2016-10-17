@@ -135,7 +135,7 @@
 			}
 		},
 		errorFun: function(n){
-			var errorText = "<h2>很抱歉</h2><p>该号码验证失败</p>";
+			var errorText = "<h2>很抱歉</h2><p>该号码验证失败<br /> 如有疑问，请联系微信客服</p>";
 			if(n <=0){
 				$(".errorTips .etcon").html(errorText);
 				this.btnShow();
