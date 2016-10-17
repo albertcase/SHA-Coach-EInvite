@@ -204,6 +204,10 @@ body{
     .btnArea{
         bottom: 12em;
     }
+
+    .errorTips{
+        top: -22%;
+    }
 }
 
 
