@@ -20,8 +20,6 @@
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat"></script>
 <script src="./vfile/js/jquery.js"></script>
 <script src="./vfile/js/PxLoader.js"></script>
-<script src="./vfile/js/public.js"></script>
-
 
 <div class="loading">
 	<div class="loading_con">
@@ -95,7 +93,7 @@
 
 	</div>
 </div>
-
+<script src="./vfile/js/public.js"></script>
 
 <script type="text/javascript">
 

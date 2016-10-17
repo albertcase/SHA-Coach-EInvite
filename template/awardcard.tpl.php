@@ -20,7 +20,6 @@
 
 <script src="./vfile/js/jweixin.js"></script>
 <script src="./vfile/js/jquery.js"></script>
-<script src="./vfile/js/public.js"></script>
 
 <!-- 横屏代码 -->
 <div id="orientLayer" class="mod-orient-layer">
@@ -48,7 +47,7 @@
 	</div>
 </div>
 
-
+<script src="./vfile/js/public.js"></script>
 <script type="text/javascript" src="./vfile/js/jquery.qrcode.min.js"></script>
 <script>
 	window.onload = function(){
@@ -59,7 +58,7 @@
 			width: 100,
 			height: 100
 		});
-		
+
 	}
 	</script>
 </body>
