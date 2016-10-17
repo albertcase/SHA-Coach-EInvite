@@ -183,7 +183,8 @@
 	    }else if(data.code == "8"){
 
 	    }else{
-	    	coachEinviteMethod.count--;
+				if(data.code != "8")
+	    		coachEinviteMethod.count--;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }
 	    pfun.formErrorTips(data.msg);
