@@ -34,12 +34,14 @@ class DatabaseAPI {
 	}
 
 	public function registerAward($openid,$callnumber){
-		if($this->insertTry($openid) === 'A')
-			return 'E';//not have this openid
-		if(!$res = $this->checkCallnumber($callnumber))
+		if(!$res = $this->checkCallnumber($callnumber)){
+			$this->insertTry($openid);
 			return 'A';//not have this callnumber;
+		}
 		if($res->openid)
 			return 'B';//alread registered
+		if($this->insertTry($openid) === 'A')
+			return 'E';//not have this openid
 		$sql = "UPDATE `coach_award` SET `openid` = ?,`awardcode` = ? WHERE `callnumber` LIKE '%{$callnumber}'";
 		$res = $this->db->prepare($sql);
 		$code = md5('openid'.$openid);
