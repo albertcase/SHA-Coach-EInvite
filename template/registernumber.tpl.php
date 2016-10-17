@@ -181,7 +181,8 @@
 	    if(data.code == "10"){
 	    	window.location.href = "/"
 	    }else{
-	    	coachEinviteMethod.count--;
+				if(data.code != "8")
+	    		coachEinviteMethod.count--;
 	    	coachEinviteMethod.errorFun(coachEinviteMethod.count);
 	    }
 	    pfun.formErrorTips(data.msg);
