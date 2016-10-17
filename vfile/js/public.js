@@ -10,9 +10,6 @@ var shareArr = {
 var pfun = {
     init: function(){
         var self = this;
-        // self.ajaxFun("GET", "http://maxmara.samesamechina.com/sharetoken?url=" + shareArr["_url"], "", "jsonp", function(data){
-        //     self.wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
-        // });
         self.wxshareFun();
     },
     loadFn: function(arr , fn , fn2){

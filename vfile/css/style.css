@@ -184,6 +184,10 @@ body{
     .btn{
         margin: 12% 0 15% 0;
     }
+
+    .btnArea{
+        bottom: 5em;
+    }
 }
 
 
