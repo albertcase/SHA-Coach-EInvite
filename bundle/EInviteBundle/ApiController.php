@@ -16,8 +16,13 @@ class ApiController extends Controller {
 		return $this->dataPrint($_db->doData());
 	}
 
-	public function loginmeetsAction() {
-		$_db = new \forms\activeMeets('POST');
+	public function loginmeets1Action() {
+		$_db = new \forms\active1Meets('POST');
+		return $this->dataPrint($_db->doData());
+	}
+
+	public function loginmeets2Action() {
+		$_db = new \forms\active2Meets('POST');
 		return $this->dataPrint($_db->doData());
 	}
 
