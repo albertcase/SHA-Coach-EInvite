@@ -154,8 +154,8 @@
 
 	$(".receive-btn").click(function(){
 		var _gn = coachEinviteMethod.getNum().replace(/\s/ig,'');
-		if(_gn.length != 6){
-			pfun.formErrorTips("请输入您手机的后六位验证！");
+		if(_gn.length != 4){
+			pfun.formErrorTips("请输入您手机的后四位验证！");
 		}else{
 			var submitPushData = {
 				"callnumber": _gn
