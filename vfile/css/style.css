@@ -136,7 +136,7 @@ body{
 }
 
 .btn.disable{
-    opacity: .8;
+    opacity: .5;
 }
 
 .btn.disable a{
