@@ -158,6 +158,7 @@
 		if(_gn.length != 4){
 			pfun.formErrorTips("请输入您手机的后四位验证！");
 		}else{
+			$(this).addClass('disable');
 			var submitPushData = {
 				"callnumber": _gn
 			}
@@ -184,6 +185,8 @@
 			}
 	    }
 	    pfun.formErrorTips(data.msg);
+	    
+	    $(".receive-btn").removeClass('disable');
 
 	}
 
