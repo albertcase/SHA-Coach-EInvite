@@ -94,9 +94,18 @@
 **feedbacks:**
 
 	{
-		code: '10',
-		msg: '获取成功'
+    "code": "10",
+    "msg": "获取成功",
+    "data": {
+        "awardcode": "87baf2d73bd0c36056978aa726517b35",
+        "callnumber": "3333",
+        "meettime": "2",
+        "meet1status": "1",
+        "meet2status": "1",
+        "dinnerstatus": "1"
+    	}
 	}
+	
 	{
 		code: '9',
 		msg: '获取失败'
@@ -107,7 +116,7 @@
 	}
 	
 ###活动签到13：30
-**url:** /api/guestinfo
+**url:** /api/loginmeets1
 
 **Method:** POST
 
@@ -121,11 +130,11 @@
 
 	{
 		code: '10',
-		msg: '获取成功'
+		msg: '成功'
 	}
 	{
 		code: '9',
-		msg: '获取失败'
+		msg: '失败'
 	}
 	{
 		code: '11',
@@ -133,7 +142,7 @@
 	}
 	
 ###活动签到15：30
-**url:** /api/loginmeets
+**url:** /api/loginmeets2
 
 **Method:** POST
 
@@ -147,11 +156,37 @@
 
 	{
 		code: '10',
-		msg: '活动签到成功'
+		msg: '成功'
 	}
 	{
 		code: '9',
-		msg: '活动签到失败'
+		msg: '失败'
+	}
+	{
+		code: '11',
+		msg: '输入错误'
+	}
+	
+###晚宴签到
+**url:** /api/logindinner
+
+**Method:** POST
+
+**param:**
+
+	{
+		awardcode: '123456'
+	}
+
+**feedbacks:**
+
+	{
+		code: '10',
+		msg: '成功'
+	}
+	{
+		code: '9',
+		msg: '失败'
 	}
 	{
 		code: '11',
