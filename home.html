@@ -153,10 +153,11 @@
 
         	console.log(identifier);
 
-        	//pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
+        	
 
         	if(eventMethod.identifierIsPass(identifier)){
-        		eventMethod.visibleFun(".checkin");
+        		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
+        		//eventMethod.visibleFun(".checkin");
         	}else{
         		eventMethod.visibleFun(".errorTips");
         	}
