@@ -117,20 +117,21 @@ class DatabaseAPI {
 	}
 
 	public function checkinActive($code){
-		$sql = "SELECT `openid`,`awardcode`,`callnumber`,`meettime`,`meetstatus`,`dinnerstatus` FROM `coach_award` WHERE `awardcode` = ? ";
+		$sql = "SELECT `openid`,`awardcode`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`dinnerstatus`,`guide`,`memname` FROM `coach_award` WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $code);
 		$res->execute();
-		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meet1status,$meet2status,$dinnerstatus);
+		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meet1status,$meet2status,$dinnerstatus,$guide,$memname);
 		if($res->fetch()) {
 			$result = new \stdClass();
-			$result->openid = $openid;
 			$result->awardcode = $awardcode;
 			$result->callnumber = $callnumber;
 			$result->meettime = $meettime;
 			$result->meet1status = $meet1status;
 			$result->meet2status = $meet2status;
 			$result->dinnerstatus = $dinnerstatus;
+			$result->guide = $guide;
+			$result->memname = $memname;
 			return $result;
 		}
 		return false;
@@ -139,12 +140,15 @@ class DatabaseAPI {
 	public function active1Meets($awardcode){
 		if(!$status = $this->ckeckMeet1status($awardcode))
 			return false;
-		$ms = 0;
-		if(!$status->meet1status)
-			$ms = 1;
-		$sql = "UPDATE `coach_award` SET `meet1status` = {$ms} ,`inmeettime` = ? WHERE `awardcode` = ? ";
+		if($status->meet1status){
+				$ms = '0';
+		}else{
+				$ms = '1';
+		}
+		print_r($status);
+		$sql = "UPDATE `coach_award` SET `meet1status` = ? ,`inmeettime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("ss", time(),$awardcode);
+		$res->bind_param("sss", $ms,time(),$awardcode);
 		if($res->execute())
 			return true;
 		return false;
@@ -153,12 +157,14 @@ class DatabaseAPI {
 	public function active2Meets($awardcode){
 		if(!$status = $this->ckeckMeet2status($awardcode))
 			return false;
-		$ms = 0;
-		if(!$status->meet2status)
-			$ms = 1;
-		$sql = "UPDATE `coach_award` SET `meet2status` = {$ms} ,`inmeettime` = ? WHERE `awardcode` = ? ";
+		if($status->meet2status){
+				$ms = '0';
+		}else{
+				$ms = '1';
+		}
+		$sql = "UPDATE `coach_award` SET `meet2status` = ? ,`inmeettime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("ss", time(),$awardcode);
+		$res->bind_param("sss", $ms,time(),$awardcode);
 		if($res->execute())
 			return true;
 		return false;
@@ -172,6 +178,7 @@ class DatabaseAPI {
 		$res->bind_result($meet1status);
 		if($res->fetch()) {
 			$result = new \stdClass();
+			$result->awardcode = $awardcode;
 			$result->meet1status = $meet1status;
 			return $result;
 		}
@@ -192,10 +199,32 @@ class DatabaseAPI {
 		return false;
 	}
 
-	public function activeDinners($awardcode){
-		$sql = "UPDATE `coach_award` SET `dinnerstatus` = 1 ,`indinnertime` = ? WHERE `awardcode` = ? ";
+	public function ckeckDinners($awardcode){
+		$sql = "SELECT `dinnerstatus` FROM `coach_award` WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("ss", time(),$awardcode);
+		$res->bind_param("s", $awardcode);
+		$res->execute();
+		$res->bind_result($dinnerstatus);
+		if($res->fetch()) {
+			$result = new \stdClass();
+			$result->dinnerstatus = $dinnerstatus;
+			return $result;
+		}
+		return false;
+	}
+
+
+	public function activeDinners($awardcode){
+		if(!$status = $this->ckeckDinners($awardcode))
+			return false;
+		if($status->dinnerstatus){
+				$ms = '0';
+		}else{
+				$ms = '1';
+		}
+		$sql = "UPDATE `coach_award` SET `dinnerstatus` = ? ,`indinnertime` = ? WHERE `awardcode` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("sss", $ms,time(),$awardcode);
 		if($res->execute())
 			return true;
 		return false;

@@ -41,6 +41,6 @@ class phoneNumber extends FormRequest{
   }
 
   public function callnumber_Ckeck($key){
-    return (bool)preg_match("/^[0-9]{4}+$/" ,trim($key));
+    return (bool)preg_match("/^[0-9]{6}+$/" ,trim($key));
   }
 }

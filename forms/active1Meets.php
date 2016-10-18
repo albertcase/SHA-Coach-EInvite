@@ -20,8 +20,8 @@ class active1Meets extends FormRequest{
   public function dealData(){
     $_db = new \Lib\DatabaseAPI();
     if($_db->active1Meets($this->getdata['awardcode']))
-      return array('code' => '10' ,'msg' => '活动签到成功');
-    return array('code' => '9' ,'msg' => '活动签到失败');
+      return array('code' => '10' ,'msg' => '签到成功');
+    return array('code' => '9' ,'msg' => '签到失败');
   }
 
   public function awardcode_Ckeck($key){
