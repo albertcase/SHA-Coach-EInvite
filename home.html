@@ -49,10 +49,10 @@
 	
 				<div class="slideModel checkin">
 					<p>
-						尊敬的<em>XXX</em>欢迎您出席13: 30的活动
+						尊敬的<span class="uname">XXX</span>欢迎您出席<span class="ntime">13: 30</span>的活动
 					</p>
 					<p>
-						SA:<em>XXX</em>
+						SA:<span class="nsa">XXX</span>
 					</p>
 
 					<ul class="checklist">
@@ -80,6 +80,8 @@
 <script type="text/javascript">
 	
 	var eventMethod = {
+		scanStatus: false,
+		ntArr: ["13：30", "15：30"], 
 		visibleFun: function(n){
 			$(".slideModel").css({"visibility": "hidden"});
 			$(n).css({"visibility": "visible"});
@@ -90,6 +92,31 @@
 			}else{
 				return true;
 			}
+		},
+		conRewrite: function(n){
+			//console.log(n);
+			$(".uname").html(n['uname']);
+			$(".usa").html(n['usa']);
+
+			if(n['ci1']){
+				$(".checklist li").eq(0).addClass("active");
+			}
+
+			if(n['ci2']){
+				$(".checklist li").eq(1).addClass("active");
+			}
+
+			if(n['ci3']){
+				$(".checklist li").eq(2).addClass("active");
+			}
+
+			$(".ntime").html(ntArr[n['nt']]);
+
+			$(".checklist").attr("data-code", n['tel'])
+
+			//this.scanStatus = true;
+
+			this.visibleFun(".checkin");
 		}
 	}
 
@@ -101,15 +128,6 @@
 
     pfun.loadingFnDoing(LoadingImg, function(){
     	$(".loading").css({"visibility": "hidden"});
-    })
-
-    $(".checklist li").on("click", function(){
-    	var self = $(this);
-    	if(self.hasClass('active')){
-    		self.removeClass('active');
-    	}else{
-    		self.addClass('active')
-    	}
     })
 
 
@@ -126,9 +144,17 @@
 
 	$(document).keypress(function (e) {
 		//console.log(e.keyCode); //32空格  13回车
-		var identifier = $("#identifier").val();
+		var identifier = $("#identifier").val(),
+			guestinfoPushData = {
+				awardcode: identifier
+			};
         if (e.keyCode == 13 || e.keyCode == 32){
+        	//if(eventMethod.scanStatus) return false;
+
         	console.log(identifier);
+
+        	//pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
+
         	if(eventMethod.identifierIsPass(identifier)){
         		eventMethod.visibleFun(".checkin");
         	}else{
@@ -138,19 +164,62 @@
         }
      })
 
+    function guestinfoCallback(data){
+        if(data.code == 10){
+        	var databox = {
+        		'uname': data.memname, 
+        		'usa': data.guide, 
+        		'ci0': data.meet1status, 
+        		'ci1': data.meet2status, 
+        		'ci2': data.dinnerstatus, 
+        		'nt': data.meettime,
+        		'tel': data.callnumber
+        	}
+        	eventMethod.conRewrite(databox);
 
-
-
-	var guestinfoPushData = {
-		awardcode: '123456'
-	}
-
-	ajaxfun("GET", "/api/guestinfo", guestinfoPushData, "json", jssdkCallback);
-
-    function jssdkCallback(data){
-        console.log(data);
+        }else if(data.code == 9){
+        	eventMethod.visibleFun(".errorTips");
+        }else{
+        	pfun.formErrorTips(data.msg);
+        }
     } 
 
+  
+
+    
+
+    $(".checklist").delegate("li", "click", function(){
+    	var self = $(this),
+	    	lmPushData = {
+		    	awardcode: $(".nsa").html()
+		    },
+		    _index = self.index(),
+		    ajaxSrcArr = ["./api/loginmeets1", "./api/loginmeets2", "./api/logindinner"];
+    	
+    	if(self.hasClass("disable")) return false;
+
+    	self.addClass("disable");
+
+    	pfun.ajaxFun("post", ajaxSrcArr[_index], lmPushData, "json", lmCallback);
+
+    	function lmCallback(data){
+
+    		if(data.code == 10){
+    			if(self.hasClass('active')){
+		    		self.removeClass('active');
+		    	}else{
+		    		self.addClass('active')
+		    	}
+    		}else{
+    			pfun.formErrorTips(data.msg);
+    		}
+
+    		self.removeClass("disable");
+
+    	}
+
+    	
+    })
 
 
 </script>

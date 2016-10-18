@@ -159,6 +159,20 @@ body.heightbg100{
 }
 
 
+.checklist li.disable{
+    opacity: .5;
+}
+
+.checklist li.disable:after{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    background: url('../../img/loading.gif') no-repeat center;
+    z-index: 2;
+}
 
 
 
