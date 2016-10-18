@@ -93,18 +93,20 @@
 
 **feedbacks:**
 
-	{
+    {
     "code": "10",
     "msg": "获取成功",
     "data": {
         "awardcode": "87baf2d73bd0c36056978aa726517b35",
-        "callnumber": "3333",
-        "meettime": "2",
-        "meet1status": "1",
-        "meet2status": "1",
-        "dinnerstatus": "1"
-    	}
-	}
+        "callnumber": "555555",
+        "meettime": "1",//几点场次
+        "meet1status": "0",//13：30的进场状态
+        "meet2status": "0",//15：30的进场状态
+        "dinnerstatus": "0",//晚宴的进场状态
+        "guide": "小镇贵宾",//SA后参数
+        "memname": "aaaa"，//用户名
+      }
+    }
 	
 	{
 		code: '9',
