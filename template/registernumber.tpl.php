@@ -191,6 +191,7 @@
 
 	}
 
+	pfun.init();
 </script>
 
 

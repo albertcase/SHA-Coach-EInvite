@@ -63,6 +63,7 @@
 		pfun.overscroll(document.querySelector('#conscroll'));
 
 	}
+	pfun.init();
 	</script>
 </body>
 </html>
