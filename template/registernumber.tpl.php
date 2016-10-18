@@ -154,6 +154,7 @@
 
 
 	$(".receive-btn").click(function(){
+		if($(this).hasClass('disable')) return false;
 		var _gn = coachEinviteMethod.getNum().replace(/\s/ig,'');
 		if(_gn.length != 4){
 			pfun.formErrorTips("请输入您手机的后四位验证！");
