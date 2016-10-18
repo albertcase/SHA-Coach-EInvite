@@ -47,7 +47,7 @@
 			</div>
 			<div class="slidecon">
 	
-				<div class="checkin">
+				<div class="slideModel checkin">
 					<p>
 						尊敬的<em>XXX</em>欢迎您出席13: 30的活动
 					</p>
@@ -56,15 +56,15 @@
 					</p>
 
 					<ul class="checklist">
-						<li class="active">13: 30活动签到</li>
+						<li>13: 30活动签到</li>
 						<li>15: 30活动签到</li>
 						<li>晚宴签到</li>
 					</ul>
 				</div>
 
-				<div class="errorTips">无法识别该二维码</div>
+				<div class="slideModel errorTips">无法识别该二维码</div>
 				<div class="inputArea">
-					<input type="text">
+					<input type="text" id="identifier">
 				</div>
 				<p class="inputTips">请扫描二维码进行识别</p>
 
@@ -79,6 +79,20 @@
 
 <script type="text/javascript">
 	
+	var eventMethod = {
+		visibleFun: function(n){
+			$(".slideModel").css({"visibility": "hidden"});
+			$(n).css({"visibility": "visible"});
+		},
+		identifierIsPass: function(n){
+			if(n == ""){
+				return false;
+			}else{
+				return true;
+			}
+		}
+	}
+
 	var LoadingImg = [
         "/vfile/pc/img/bg.jpg",
          "/vfile/pc/img/slogan.png",
@@ -108,6 +122,34 @@
 	    	$("body").removeClass('heightbg100');
 	    }
 	});
+
+
+	$(document).keypress(function (e) {
+		//console.log(e.keyCode); //32空格  13回车
+		var identifier = $("#identifier").val();
+        if (e.keyCode == 13 || e.keyCode == 32){
+        	console.log(identifier);
+        	if(eventMethod.identifierIsPass(identifier)){
+        		eventMethod.visibleFun(".checkin");
+        	}else{
+        		eventMethod.visibleFun(".errorTips");
+        	}
+        	
+        }
+     })
+
+
+
+
+	var guestinfoPushData = {
+		awardcode: '123456'
+	}
+
+	ajaxfun("GET", "/api/guestinfo", guestinfoPushData, "json", jssdkCallback);
+
+    function jssdkCallback(data){
+        console.log(data);
+    } 
 
 
 
