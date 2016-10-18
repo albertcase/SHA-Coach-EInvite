@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Coach</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<!--自适应设备宽度-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--控制全屏时顶部状态栏的外，默认白色-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="Keywords" content="">
+	<meta name="Description" content="...">
+
+	<link rel="stylesheet" type="text/css" href="./vfile/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="./vfile/pc/css/style.css" />
+</head>
+<body>
+
+<script src="./vfile/js/jquery.js"></script>
+<script src="./vfile/js/PxLoader.js"></script>
+<script src="./vfile/js/public.js"></script>
+
+
+<div class="loading">
+	<div class="loading_con">
+		<img src="./vfile/img/logo.png" class="car">
+
+		<div class="spinner">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+		<p>目前涌入的小伙伴过多<br>页面正在跳转中，请耐心等待。</p>
+	</div>
+</div>
+
+<div class="dreambox ycenter">
+	<div class="container ycenter">
+		
+		<div class="pagecon">
+			<a href="javascript:;" class="logo">
+				<img src="./vfile/pc/img/logo.png" >
+			</a>
+			<div class="slogan">
+				<img src="./vfile/pc/img/slogan.png" >
+			</div>
+			<div class="slidecon">
+	
+				<div class="checkin">
+					<p>
+						尊敬的<em>XXX</em>欢迎您出席13: 30的活动
+					</p>
+					<p>
+						SA:<em>XXX</em>
+					</p>
+
+					<ul class="checklist">
+						<li class="active">13: 30活动签到</li>
+						<li>15: 30活动签到</li>
+						<li>晚宴签到</li>
+					</ul>
+				</div>
+
+				<div class="errorTips">无法识别该二维码</div>
+				<div class="inputArea">
+					<input type="text">
+				</div>
+				<p class="inputTips">请扫描二维码进行识别</p>
+
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	
+	var LoadingImg = [
+        "/vfile/pc/img/bg.jpg",
+         "/vfile/pc/img/slogan.png",
+        "/vfile/pc/img/logo.png"
+    ];
+
+    pfun.loadingFnDoing(LoadingImg, function(){
+    	$(".loading").css({"visibility": "hidden"});
+    })
+
+    $(".checklist li").on("click", function(){
+    	var self = $(this);
+    	if(self.hasClass('active')){
+    		self.removeClass('active');
+    	}else{
+    		self.addClass('active')
+    	}
+    })
+
+
+    $(window).resize( function(){
+    	var domw = parseInt($(document).width(), 10),
+    		domh = parseInt($(document).height(), 10)
+	    if(domw < 1000){
+	    	$("body").addClass('heightbg100');
+	    }else{
+	    	$("body").removeClass('heightbg100');
+	    }
+	});
+
+
+
+</script>
+
+
+
+</body>
+</html>

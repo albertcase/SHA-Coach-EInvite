@@ -153,7 +153,7 @@ var pfun = {
             
         } , function (p){
             //$(".loading em").html(p);
-            console.log(p);
+            //console.log(p);
         });
     },
     overscroll: function(el){
