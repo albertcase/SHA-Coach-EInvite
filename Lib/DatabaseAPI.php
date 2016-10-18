@@ -117,11 +117,11 @@ class DatabaseAPI {
 	}
 
 	public function checkinActive($code){
-		$sql = "SELECT `openid`,`awardcode`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`dinnerstatus` FROM `coach_award` WHERE `awardcode` = ? ";
+		$sql = "SELECT `openid`,`awardcode`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`dinnerstatus`,`guide`,`memname` FROM `coach_award` WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $code);
 		$res->execute();
-		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meet1status,$meet2status,$dinnerstatus);
+		$res->bind_result($openid,$awardcode,$callnumber,$meettime,$meet1status,$meet2status,$dinnerstatus,$guide,$memname);
 		if($res->fetch()) {
 			$result = new \stdClass();
 			$result->awardcode = $awardcode;
@@ -130,6 +130,8 @@ class DatabaseAPI {
 			$result->meet1status = $meet1status;
 			$result->meet2status = $meet2status;
 			$result->dinnerstatus = $dinnerstatus;
+			$result->guide = $guide;
+			$result->memname = $memname;
 			return $result;
 		}
 		return false;
