@@ -200,6 +200,16 @@ class DatabaseAPI {
 			return true;
 		return false;
 	}
+
+	public function insertIntoUser($data){
+		$sql = "INSERT INTO `coach_award` SET `meettime` = ?, `guide` = ?, `sex` = ?, `memname` = ?, `callnumber` = ? ";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("ssss", $meettime, $guide, $sex,$memname,$callnumber);
+		if($res->execute())
+			return $res->insert_id;
+		else
+			return FALSE;
+	}
 	//////
 
 	public function watchdog($type, $data){
