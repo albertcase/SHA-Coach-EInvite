@@ -19,7 +19,7 @@ class active2Meets extends FormRequest{
 
   public function dealData(){
     $_db = new \Lib\DatabaseAPI();
-    if($_db->activeMeets($this->getdata['awardcode']))
+    if($_db->active2Meets($this->getdata['awardcode']))
       return array('code' => '10' ,'msg' => '活动签到成功');
     return array('code' => '9' ,'msg' => '活动签到失败');
   }
