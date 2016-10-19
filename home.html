@@ -165,16 +165,16 @@
         }
      })
 
-    function guestinfoCallback(data){
+    function guestinfoCallback(result){
         if(data.code == 10){
         	var databox = {
-        		'uname': data.memname, 
-        		'usa': data.guide, 
-        		'ci0': data.meet1status, 
-        		'ci1': data.meet2status, 
-        		'ci2': data.dinnerstatus, 
-        		'nt': data.meettime,
-        		'tel': data.callnumber
+        		'uname': result.data.memname, 
+        		'usa': result.data.guide, 
+        		'ci0': result.data.meet1status, 
+        		'ci1': result.data.meet2status, 
+        		'ci2': result.data.dinnerstatus, 
+        		'nt': result.data.meettime,
+        		'tel': result.data.callnumber
         	}
         	eventMethod.conRewrite(databox);
 
