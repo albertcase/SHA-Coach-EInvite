@@ -124,7 +124,7 @@
         "/vfile/pc/img/bg.jpg",
          "/vfile/pc/img/slogan.png",
         "/vfile/pc/img/logo.png"
-    ];
+    ],setT;
 
     pfun.loadingFnDoing(LoadingImg, function(){
     	$(".loading").css({"visibility": "hidden"});
@@ -151,16 +151,22 @@
         if (e.keyCode == 13 || e.keyCode == 32){
         	//if(eventMethod.scanStatus) return false;
 
+        	clearTimeout(setT);
         	console.log(identifier);
 
-        	
-
-        	if(eventMethod.identifierIsPass(identifier)){
-        		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
-        		//eventMethod.visibleFun(".checkin");
-        	}else{
-        		eventMethod.visibleFun(".errorTips");
+        	if(identifier != ""){
+        		if(eventMethod.identifierIsPass(identifier)){
+	        		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
+	        		//eventMethod.visibleFun(".checkin");
+	        	}else{
+	        		eventMethod.visibleFun(".errorTips");
+	        		setT = setTimeout(function(){
+	        			$(".slideModel").css({"visibility": "hidden"});
+	        		},3000);
+	        		
+	        	}
         	}
+        	
         	
         }
      })
@@ -183,6 +189,8 @@
         }else{
         	pfun.formErrorTips(result.msg);
         }
+
+        $("#identifier").val("");
     } 
 
   
