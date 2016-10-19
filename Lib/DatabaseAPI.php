@@ -147,7 +147,8 @@ class DatabaseAPI {
 		}
 		$sql = "UPDATE `coach_award` SET `meet1status` = ? ,`inmeettime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("sss", $ms,time(),$awardcode);
+		$time = time();
+		$res->bind_param("sss", $ms,$time,$awardcode);
 		if($res->execute())
 			return true;
 		return false;
@@ -163,7 +164,8 @@ class DatabaseAPI {
 		}
 		$sql = "UPDATE `coach_award` SET `meet2status` = ? ,`inmeettime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("sss", $ms,time(),$awardcode);
+		$time = time();
+		$res->bind_param("sss", $ms,$time,$awardcode);
 		if($res->execute())
 			return true;
 		return false;
