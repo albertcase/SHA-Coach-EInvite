@@ -112,7 +112,9 @@
 
 			$(".ntime").html(this.ntArr[n['nt']]);
 
-			$(".checklist").attr("data-code", n['tel'])
+			$(".checklist").attr("data-code", n['tel']);
+
+			$(".checklist").attr("data-awardcode", n['awardcode']);
 
 			//this.scanStatus = true;
 
@@ -179,7 +181,8 @@
         		'ci1': result.data.meet2status, 
         		'ci2': result.data.dinnerstatus, 
         		'nt': result.data.meettime,
-        		'tel': result.data.callnumber
+        		'tel': result.data.callnumber,
+        		'awardcode': result.data.awardcode
         	}
         	eventMethod.conRewrite(databox);
 
@@ -201,7 +204,7 @@
     $(".checklist").delegate("li", "click", function(){
     	var self = $(this),
 	    	lmPushData = {
-		    	awardcode: $(".usa").html()
+		    	awardcode: $(".checklist").attr("data-awardcode")
 		    },
 		    _index = self.index(),
 		    ajaxSrcArr = ["./api/loginmeets1", "./api/loginmeets2", "./api/logindinner"];
