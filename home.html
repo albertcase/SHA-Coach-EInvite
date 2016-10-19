@@ -218,7 +218,11 @@
 		    		self.addClass('active')
 		    	}
     		}else{
-    			pfun.formErrorTips(data.msg);
+    			//pfun.formErrorTips(data.msg);
+    			eventMethod.visibleFun(".errorTips");
+        		setT = setTimeout(function(){
+        			$(".slideModel").css({"visibility": "hidden"});
+        		},3000);
     		}
 
     		self.removeClass("disable");
