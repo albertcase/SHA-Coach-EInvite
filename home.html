@@ -152,19 +152,17 @@
         	//if(eventMethod.scanStatus) return false;
 
         	clearTimeout(setT);
-        	console.log(identifier);
+        	//console.log(identifier);
 
-        	if(identifier != ""){
-        		if(eventMethod.identifierIsPass(identifier)){
-	        		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
-	        		//eventMethod.visibleFun(".checkin");
-	        	}else{
-	        		eventMethod.visibleFun(".errorTips");
-	        		setT = setTimeout(function(){
-	        			$(".slideModel").css({"visibility": "hidden"});
-	        		},3000);
-	        		
-	        	}
+    		if(eventMethod.identifierIsPass(identifier)){
+        		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
+        		//eventMethod.visibleFun(".checkin");
+        	}else{
+        		eventMethod.visibleFun(".errorTips");
+        		setT = setTimeout(function(){
+        			$(".slideModel").css({"visibility": "hidden"});
+        		},3000);
+        		
         	}
         	
         	
