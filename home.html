@@ -52,7 +52,7 @@
 						尊敬的<span class="uname">XXX</span>欢迎您出席<span class="ntime">13: 30</span>的活动
 					</p>
 					<p>
-						SA:<span class="nsa">XXX</span>
+						SA:<span class="usa">XXX</span>
 					</p>
 
 					<ul class="checklist">
@@ -192,7 +192,7 @@
     $(".checklist").delegate("li", "click", function(){
     	var self = $(this),
 	    	lmPushData = {
-		    	awardcode: $(".nsa").html()
+		    	awardcode: $(".usa").html()
 		    },
 		    _index = self.index(),
 		    ajaxSrcArr = ["./api/loginmeets1", "./api/loginmeets2", "./api/logindinner"];
