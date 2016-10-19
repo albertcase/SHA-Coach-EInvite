@@ -222,7 +222,7 @@ class DatabaseAPI {
 				$ms = '0';
 		}else{
 				$ms = '1';
-		}
+		};
 		$sql = "UPDATE `coach_award` SET `dinnerstatus` = ? ,`indinnertime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("sss", $ms,time(),$awardcode);
