@@ -49,10 +49,10 @@
 	
 				<div class="slideModel checkin">
 					<p>
-						尊敬的<span class="uname">XXX</span>欢迎您出席<span class="ntime">13: 30</span>的活动
+						尊敬的<span class="uname">--</span>欢迎您出席<span class="ntime">--</span>的活动
 					</p>
 					<p>
-						SA:<span class="usa">XXX</span>
+						SA:<span class="usa">--</span>
 					</p>
 
 					<ul class="checklist">
@@ -98,15 +98,15 @@
 			$(".uname").html(n['uname']);
 			$(".usa").html(n['usa']);
 
-			if(n['ci1']){
+			if(n['ci1'] > 0){
 				$(".checklist li").eq(0).addClass("active");
 			}
 
-			if(n['ci2']){
+			if(n['ci2'] > 0){
 				$(".checklist li").eq(1).addClass("active");
 			}
 
-			if(n['ci3']){
+			if(n['ci3'] > 0){
 				$(".checklist li").eq(2).addClass("active");
 			}
 
