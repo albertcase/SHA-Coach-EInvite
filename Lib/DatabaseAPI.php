@@ -145,7 +145,6 @@ class DatabaseAPI {
 		}else{
 				$ms = '1';
 		}
-		print_r($status);
 		$sql = "UPDATE `coach_award` SET `meet1status` = ? ,`inmeettime` = ? WHERE `awardcode` = ? ";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("sss", $ms,time(),$awardcode);
