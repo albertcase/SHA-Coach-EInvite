@@ -81,7 +81,7 @@
 	
 	var eventMethod = {
 		scanStatus: false,
-		ntArr: ["13：30", "15：30"], 
+		ntArr: ["", "13：30", "15：30"], 
 		visibleFun: function(n){
 			$(".slideModel").css({"visibility": "hidden"});
 			$(n).css({"visibility": "visible"});
@@ -98,15 +98,15 @@
 			$(".uname").html(n['uname']);
 			$(".usa").html(n['usa']);
 
-			if(n['ci1'] > 0){
+			if(n['ci0'] > 0){
 				$(".checklist li").eq(0).addClass("active");
 			}
 
-			if(n['ci2'] > 0){
+			if(n['ci1'] > 0){
 				$(".checklist li").eq(1).addClass("active");
 			}
 
-			if(n['ci3'] > 0){
+			if(n['ci2'] > 0){
 				$(".checklist li").eq(2).addClass("active");
 			}
 
@@ -133,7 +133,7 @@
     })
 
 
-    $(window).resize( function(){
+    $(window).resize(function(){
     	var domw = parseInt($(document).width(), 10),
     		domh = parseInt($(document).height(), 10)
 	    if(domw < 1200){
@@ -142,6 +142,8 @@
 	    	$("body").removeClass('heightbg100');
 	    }
 	});
+
+	$(window).resize();
 
 
 	$(document).keypress(function (e) {
