@@ -166,7 +166,7 @@
      })
 
     function guestinfoCallback(result){
-        if(data.code == 10){
+        if(result.code == 10){
         	var databox = {
         		'uname': result.data.memname, 
         		'usa': result.data.guide, 
@@ -178,7 +178,7 @@
         	}
         	eventMethod.conRewrite(databox);
 
-        }else if(data.code == 9){
+        }else if(result.code == 9){
         	eventMethod.visibleFun(".errorTips");
         }else{
         	pfun.formErrorTips(data.msg);
