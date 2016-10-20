@@ -81,6 +81,7 @@
 	
 	var eventMethod = {
 		scanStatus: false,
+		ajaxSrcArr = ["./api/loginmeets1", "./api/loginmeets2", "./api/logindinner"],
 		ntArr: ["", "13：30", "15：30"], 
 		visibleFun: function(n){
 			$(".slideModel").css({"visibility": "hidden"});
@@ -225,14 +226,13 @@
 	    	lmPushData = {
 		    	awardcode: $(".checklist").attr("data-awardcode")
 		    },
-		    _index = self.index(),
-		    ajaxSrcArr = ["./api/loginmeets1", "./api/loginmeets2", "./api/logindinner"];
+		    _index = self.index();
     	
     	if(self.hasClass("disable")) return false;
 
     	self.addClass("disable");
 
-    	pfun.ajaxFun("post", ajaxSrcArr[_index], lmPushData, "json", lmCallback);
+    	pfun.ajaxFun("post", eventMethod.ajaxSrcArr[_index], lmPushData, "json", lmCallback);
 
     	function lmCallback(data){
 
