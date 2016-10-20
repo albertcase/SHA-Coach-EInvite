@@ -116,8 +116,6 @@
 
 			$(".checklist").attr("data-awardcode", n['awardcode']);
 
-			this.scanStatus = false;
-
 			this.visibleFun(".checkin");
 		},
 		focusFun: function(n){
@@ -214,6 +212,7 @@
         }
 
         $("#identifier").val("");
+        eventMethod.scanStatus = false;
     } 
 
   
