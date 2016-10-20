@@ -99,6 +99,7 @@
 			$(".uname").html(n['uname']);
 			$(".usa").html(n['usa']);
 			console.log(n);
+			$(".checklist li").removeClass("active");
 			if(n['ci0'] != "0"){
 				$(".checklist li").eq(0).addClass("active");
 			}
