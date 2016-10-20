@@ -116,7 +116,7 @@
 
 			$(".checklist").attr("data-awardcode", n['awardcode']);
 
-			//this.scanStatus = true;
+			this.scanStatus = false;
 
 			this.visibleFun(".checkin");
 		},
@@ -166,13 +166,13 @@
 				awardcode: identifier
 			};
         if (e.keyCode == 13 || e.keyCode == 32){
-        	//if(eventMethod.scanStatus) return false;
-
+        	if(eventMethod.scanStatus) return false;
+        	eventMethod.scanStatus = true;
         	$(".slideModel").css({"visibility": "hidden"});
         	clearTimeout(setT);
-        	console.log(identifier);
-
+        	
     		if(eventMethod.identifierIsPass(identifier)){
+    			console.log(identifier);
         		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
         		//eventMethod.visibleFun(".checkin");
         	}else{
@@ -181,6 +181,8 @@
         			$(".slideModel").css({"visibility": "hidden"});
         			eventMethod.focusFun("#identifier");
         		},2000);
+
+        		eventMethod.scanStatus = false;
         		
         	}
         	
