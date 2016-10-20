@@ -119,8 +119,13 @@
 			//this.scanStatus = true;
 
 			this.visibleFun(".checkin");
+		},
+		focusFun: function(n){
+			$(n).focus();
 		}
 	}
+
+	eventMethod.focusFun("#identifier");
 
 	var LoadingImg = [
         "/vfile/pc/img/bg.jpg",
@@ -166,6 +171,7 @@
         		eventMethod.visibleFun(".errorTips");
         		setT = setTimeout(function(){
         			$(".slideModel").css({"visibility": "hidden"});
+        			eventMethod.focusFun("#identifier");
         		},2000);
         		
         	}
@@ -193,6 +199,7 @@
         	eventMethod.visibleFun(".errorTips");
     		setT = setTimeout(function(){
     			$(".slideModel").css({"visibility": "hidden"});
+    			eventMethod.focusFun("#identifier");
     		},2000);
         }
 
