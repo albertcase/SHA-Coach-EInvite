@@ -152,6 +152,7 @@
 
 
 	$(document).keypress(function (e) {
+
 		//console.log(e.keyCode); //32空格  13回车
 		var identifier = $("#identifier").val(),
 			guestinfoPushData = {
@@ -237,6 +238,8 @@
     		}
 
     		self.removeClass("disable");
+
+    		eventMethod.focusFun("#identifier");
 
     	}
 
