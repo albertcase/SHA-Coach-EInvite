@@ -122,6 +122,13 @@
 		},
 		focusFun: function(n){
 			$(n).focus();
+		},
+		stopBubble: function(e){
+			if(e && e.stopPropagation){//如果不是IE浏览器  
+		        e.stopPropagation();      
+		    }else{//是IE浏览器  
+		        window.event.cancelBubble=true;   
+		    }  
 		}
 	}
 
@@ -211,7 +218,8 @@
 
     
 
-    $(".checklist").delegate("li", "click", function(){
+    $(".checklist").delegate("li", "click", function(event){
+
     	var self = $(this),
 	    	lmPushData = {
 		    	awardcode: $(".checklist").attr("data-awardcode")
@@ -242,6 +250,7 @@
     		eventMethod.focusFun("#identifier");
     	}
 
+    	eventMethod.stopBubble(event);//组织冒泡  
     	
     })
 
