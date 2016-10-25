@@ -9,6 +9,8 @@ body{
     background: #000 url('../img/bg.jpg') no-repeat center top;
     background-size: 100% auto;
     text-align: center;
+
+    -webkit-font-smoothing: antialiased;
 }
 
 .ycenter{
