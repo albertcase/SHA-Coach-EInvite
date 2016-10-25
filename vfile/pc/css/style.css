@@ -45,7 +45,8 @@ body.heightbg100{
 }
 
 .pagecon{
-    width: 82%;
+    width: 86%;
+    margin: -2% 0 0 0;
 }
 
 .logo{
@@ -106,7 +107,7 @@ body.heightbg100{
 
 .inputTips{
     margin: 11% 0 0 0;
-    font-size: 1.6rem;
+    font-size: 2.0rem;
 }
 
 
@@ -116,7 +117,7 @@ body.heightbg100{
     width: 100%;
     height: 100%;
     background: #fff;
-    font-size: 1.6rem;
+    font-size: 2.0rem;
     position: absolute;
     left: 0;
     top: 0;
@@ -142,7 +143,7 @@ body.heightbg100{
 }
 
 .checklist li{
-    width: 26%;
+    width: 27%;
     margin: 0 1.5%;
     display: inline-block;
     position: relative;
