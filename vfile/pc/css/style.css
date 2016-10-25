@@ -106,7 +106,7 @@ body.heightbg100{
 
 .inputTips{
     margin: 11% 0 0 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 
@@ -116,7 +116,7 @@ body.heightbg100{
     width: 100%;
     height: 100%;
     background: #fff;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     position: absolute;
     left: 0;
     top: 0;
@@ -128,6 +128,11 @@ body.heightbg100{
     padding: 5px 0;
     width: 100%;
     display: inline-block;
+}
+
+.checkin p span{
+    padding: 0 2px;
+    font-weight: bold;
 }
 
 .checklist{
