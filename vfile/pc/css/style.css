@@ -156,7 +156,7 @@ body.heightbg100{
     content: "";
     border: 1px #1e1e1e solid;
     display: inline-block;
-    margin: 0 6% 0 0;
+    margin: -1% 8% 0 0;
     vertical-align: middle;
 }
 
