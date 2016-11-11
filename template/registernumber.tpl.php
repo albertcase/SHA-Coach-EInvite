@@ -89,6 +89,7 @@
 		<div class="btnArea">
 			<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="./vfile/img/receive-btn.png" width="100%" alt="领取"></span>
 			<span class="btn re-enter-btn"><a href="javascript:;"></a><img src="./vfile/img/re-enter-btn.png" width="100%" alt="重新输入"></span>
+			<a class="ruleLink" href="http://url.cn/41PId89" target="_blank"><u>了解活动详情</u></a>
 		</div>
 
 	</div>
