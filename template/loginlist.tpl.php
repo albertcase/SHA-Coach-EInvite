@@ -55,6 +55,7 @@
 					</tr>
 				</thead>
 			</table>
+      <div style="font-size:120%;text-align:right;color:blue"><a href="/api/downloaduserinfo">点击下载</a><div>
   </div>
 </body>
 </html>

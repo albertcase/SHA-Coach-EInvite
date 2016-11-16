@@ -54,9 +54,7 @@ class ApiController extends Controller {
 
 	public function downloaduserinfoAction(){
 		$form = new \forms\downloadData();
-		// print_r("aaaaaa");
-		$form->doData();
-		return $this->dataPrint(";;;;;;;");
+		return $this->Response($form->doData());
 	}
 
 	public function registerAction(){
