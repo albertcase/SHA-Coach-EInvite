@@ -63,13 +63,11 @@ class SiteController extends Controller {
 		    echo 'Text to send if user hits Cancel button';
 		    exit;
 		} else {
-			// if($_SERVER['PHP_AUTH_USER'] == 'admin' && $_SERVER['PHP_AUTH_PW'] == 'coachadminsamesamechina'){
-				$_db = new \Lib\DatabaseAPI();
-				// print_r($_db->allAwardInfo());
+			if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
 				return $this->render('loginlist');
-			// }
-			// return $this->dataPrint("username or password error");
+			}
 		}
+		return $this->dataPrint("username or password error");
 	}
 
 	public function oauth3Action(){

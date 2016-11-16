@@ -38,3 +38,7 @@ define("ENCRYPT_IV", '6E4CAB2EAAF32E90');
 
 define("QRG_HOST", 'http://121.41.47.28:84/');
 define("FILE_PATH", dirname(__FILE__) . '/../files');
+
+
+define("COACH_NAME", 'admin');
+define("COACH_PWD", 'coachsamesamechina');

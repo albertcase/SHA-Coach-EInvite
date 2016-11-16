@@ -33,6 +33,7 @@
           { "data": "memname" },
           { "data": "sex" },
           { "data": "callnumber" },
+          { "data": "guide" },
           { "data": "meettime" },
           { "data": "meet1status" },
           { "data": "meet2status" },
@@ -48,6 +49,7 @@
 						<th>名字</th>
 						<th>性别</th>
 						<th>手机号</th>
+            <th>SA</th>
 						<th>入场场次</th>
 						<th>14：30签到状态</th>
             <th>16：30签到状态</th>

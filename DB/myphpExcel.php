@@ -16,6 +16,7 @@ class myphpExcel{
       "memname" => "名字",
       "sex" => "性别",
       "callnumber" => "手机号",
+      "guide" => "SA",
       "meettime" => "入场场次",
       "meet1status" => "14：30签到状态",
       "meet2status" => "16：30签到状态",
