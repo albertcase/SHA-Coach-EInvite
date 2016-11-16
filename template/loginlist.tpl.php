@@ -42,7 +42,7 @@
       } );
     } );
   </script>
-  <div style="width:900px;margin:10px auto">
+  <div style="width:1100px;margin:10px auto">
     <table id="userinfo" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
