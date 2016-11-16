@@ -56,6 +56,22 @@ class SiteController extends Controller {
 		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
 
+	public function loginlistAction(){
+		if (!isset($_SERVER['PHP_AUTH_USER'])) {
+		    header('WWW-Authenticate: Basic realm="My Realm"');
+		    header('HTTP/1.0 401 Unauthorized');
+		    echo 'Text to send if user hits Cancel button';
+		    exit;
+		} else {
+			// if($_SERVER['PHP_AUTH_USER'] == 'admin' && $_SERVER['PHP_AUTH_PW'] == 'coachadminsamesamechina'){
+				$_db = new \Lib\DatabaseAPI();
+				// print_r($_db->allAwardInfo());
+				return $this->render('loginlist');
+			// }
+			// return $this->dataPrint("username or password error");
+		}
+	}
+
 	public function oauth3Action(){
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);

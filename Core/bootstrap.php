@@ -6,6 +6,8 @@ function __autoload($class) {
 		'^Core\\' => '',
 		'^forms\\' => '',
 		'Bundle\\' => 'bundle/',
+		'^DB\\' => '',
+		'^PHPExcel\\' => '/phpoffice/Classes/PHPExcel/',
 		);
 	foreach($class_dir as $base => $dir) {
 		if(preg_match("/$base\/", $class)) {

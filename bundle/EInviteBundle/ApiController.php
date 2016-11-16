@@ -47,6 +47,18 @@ class ApiController extends Controller {
 		return $this->dataPrint(array('code' => '10', 'msg' => 'success'));
 	}
 
+	public function sourcejsonAction(){
+		$_db = new \Lib\DatabaseAPI();
+		return $this->dataPrint($_db->allAwardInfo());
+	}
+
+	public function downloaduserinfoAction(){
+		$form = new \forms\downloadData();
+		// print_r("aaaaaa");
+		$form->doData();
+		return $this->dataPrint(";;;;;;;");
+	}
+
 	public function registerAction(){
 		$data = array(
 			'name' => 'jssdk for coach_einvite',
