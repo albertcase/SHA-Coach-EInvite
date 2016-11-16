@@ -85,6 +85,8 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
         'VIP场次' => 'meettime',
         '4点' => 2,
         '2点' => 1,
+        '16:30:00' => 2,
+        '14:30:00' => 1,
         '女' => 2,
         '男' => 1,
       );
