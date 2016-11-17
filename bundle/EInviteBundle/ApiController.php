@@ -55,7 +55,8 @@ class ApiController extends Controller {
 	public function downloaduserinfoAction(){
 		if (isset($_SERVER['PHP_AUTH_USER'])) {
 			if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
-				return $this->render('loginlist');
+				$form = new \forms\downloadData();
+				return $this->Response($form->doData());
 			}
 		}
 		header('WWW-Authenticate: Basic realm="My Realm"');
