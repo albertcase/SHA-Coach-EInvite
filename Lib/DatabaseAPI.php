@@ -263,6 +263,29 @@ class DatabaseAPI {
 		}
 		return $out;
 	}
+
+	public function allAwardInfo2(){
+		$sql = "SELECT `memname`,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide`,`awardcode`,`openid` FROM `coach_award`";
+		$res = $this->db->prepare($sql);
+		$res->execute();
+		$res->bind_result($memname, $sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide, $awardcode, $openid);
+		$out = array();
+		while($res->fetch()) {
+			array_push($out, array(
+				'memname' => $memname,
+				'openid' => $openid,
+				'awardcode' => ($awardcode)?'已领':'未领',
+				'sex' => ($sex)?(($sex==1)?'男':'女'):'',
+				'callnumber' => $callnumber,
+				'guide' => $guide,
+				'meettime' => ($meettime)?(($meettime==1)?'14:30':'16:30'):'',
+				'meet1status' => ($meet1status)?'已签到':'未签到',
+				'meet2status' => ($meet2status)?'已签到':'未签到',
+				'inmeettime' => ($inmeettime)?date('Y-m-d H:i:s', $inmeettime):'',
+			));
+		}
+		return $out;
+	}
 	//////
 
 	public function watchdog($type, $data){

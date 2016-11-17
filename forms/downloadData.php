@@ -15,6 +15,18 @@ class downloadData{
     return $_db->allAwardInfo();
   }
 
+  public function doData2(){
+    $data = $this->getDatas2();
+    $name = 'system@'.date("Y-m-d H:i:s");
+    $excel = new \DB\myphpExcel();
+    return $excel->excelfile2($data,$name);
+  }
+
+  public function getDatas2(){
+    $_db = new \Lib\DatabaseAPI();
+    return $_db->allAwardInfo2();
+  }
+
   public function translate($in){
     $tr = array(
       "memname" => "名字",

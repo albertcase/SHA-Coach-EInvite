@@ -65,6 +65,19 @@ class ApiController extends Controller {
 		exit;
 	}
 
+	public function downloaduserinfo2Action(){
+		if (isset($_SERVER['PHP_AUTH_USER'])) {
+			if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
+				$form = new \forms\downloadData();
+				return $this->Response($form->doData2());
+			}
+		}
+		header('WWW-Authenticate: Basic realm="My Realm"');
+		header('HTTP/1.0 401 Unauthorized');
+		echo 'Text to send if user hits Cancel button';
+		exit;
+	}
+
 	public function registerAction(){
 		$data = array(
 			'name' => 'jssdk for coach_einvite',
