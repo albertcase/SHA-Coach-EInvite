@@ -50,7 +50,7 @@
 				<thead>
 					<tr>
 						<th>名字</th>
-						<th>是否领取卡券<th>
+						<th>是否领取</th>
 						<th>性别</th>
 						<th>手机号</th>
             <th>SA</th>
