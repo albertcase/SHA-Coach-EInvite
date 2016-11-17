@@ -53,16 +53,15 @@ class ApiController extends Controller {
 	}
 
 	public function downloaduserinfoAction(){
-		if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
-			$form = new \forms\downloadData();
-			return $this->Response($form->doData());
+		if (isset($_SERVER['PHP_AUTH_USER'])) {
+			if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
+				return $this->render('loginlist');
+			}
 		}
-		if (!isset($_SERVER['PHP_AUTH_USER'])) {
-				header('WWW-Authenticate: Basic realm="My Realm"');
-				header('HTTP/1.0 401 Unauthorized');
-				echo 'Text to send if user hits Cancel button';
-				exit;
-		}
+		header('WWW-Authenticate: Basic realm="My Realm"');
+		header('HTTP/1.0 401 Unauthorized');
+		echo 'Text to send if user hits Cancel button';
+		exit;
 	}
 
 	public function registerAction(){
