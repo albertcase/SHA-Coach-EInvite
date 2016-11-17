@@ -23,6 +23,13 @@
   }
   </style>
   <script>
+	function delcookie(){
+		console.log("aaaaaa");
+		var name = 'PHPSESSID';
+		var nowdate = new Date();
+		nowdate.setTime(-1000);
+		document.cookie=name+"='';expiress="+nowdate.toGMTString();
+	}
   $(document).ready(function() {
   $('#userinfo').DataTable( {
         "ajax": {
@@ -45,7 +52,7 @@
   </script>
   <div style="width:1200px;margin:10px auto">
 		<div style="text-align:center"><img src="/vfile/img/coach-newlogo-ny.png"></div>
-		<!-- <div style="text-align:right;"><a href="/api/logout" style="color:red">注销</a></div><br> -->
+		<div style="text-align:right;"><a href="/loginlist?action=logout" style="color:red">注销</a></div><br>
     <table id="userinfo" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
