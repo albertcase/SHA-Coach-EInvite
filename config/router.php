@@ -18,4 +18,5 @@ $routers['/api/loginmeets2'] = array('EInviteBundle\Api', 'loginmeets2');
 $routers['/api/guestinfo'] = array('EInviteBundle\Api', 'guestinfo');
 $routers['/api/sourcejson'] = array('EInviteBundle\Api', 'sourcejson');
 $routers['/api/downloaduserinfo'] = array('EInviteBundle\Api', 'downloaduserinfo');
+$routers['/api/logout'] = array('EInviteBundle\Api', 'logout');
 // $routers['/test/%/aa/%'] = array('EInviteBundle\Site', 'test');

@@ -14,6 +14,7 @@ class myphpExcel{
     $title = array();
     $top = array(
       "memname" => "名字",
+      "awardcode" => "是否领取卡券",
       "sex" => "性别",
       "callnumber" => "手机号",
       "guide" => "SA",

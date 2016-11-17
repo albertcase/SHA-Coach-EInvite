@@ -243,14 +243,15 @@ class DatabaseAPI {
 	}
 
 	public function allAwardInfo(){
-		$sql = "SELECT `memname`,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide` FROM `coach_award`";
+		$sql = "SELECT `memname`,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide`,`awardcode` FROM `coach_award`";
 		$res = $this->db->prepare($sql);
 		$res->execute();
-		$res->bind_result($memname, $sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide);
+		$res->bind_result($memname, $sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide, $awardcode);
 		$out = array();
 		while($res->fetch()) {
 			array_push($out, array(
 				'memname' => $memname,
+				'awardcode' => ($awardcode)?'已领':'未领',
 				'sex' => ($sex)?(($sex==1)?'男':'女'):'',
 				'callnumber' => $callnumber,
 				'guide' => $guide,

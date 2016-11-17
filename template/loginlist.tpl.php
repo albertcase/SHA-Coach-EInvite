@@ -31,6 +31,7 @@
         },
         "columns": [
           { "data": "memname" },
+					{ "data": "awardcode"},
           { "data": "sex" },
           { "data": "callnumber" },
           { "data": "guide" },
@@ -42,11 +43,14 @@
       } );
     } );
   </script>
-  <div style="width:1100px;margin:10px auto">
+  <div style="width:1200px;margin:10px auto">
+		<div style="text-align:center"><img src="/vfile/img/coach-newlogo-ny.png"></div>
+		<!-- <div style="text-align:right;"><a href="/api/logout" style="color:red">注销</a></div><br> -->
     <table id="userinfo" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>名字</th>
+						<th>是否领取卡券<th>
 						<th>性别</th>
 						<th>手机号</th>
             <th>SA</th>

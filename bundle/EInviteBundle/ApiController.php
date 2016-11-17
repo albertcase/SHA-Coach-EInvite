@@ -65,6 +65,14 @@ class ApiController extends Controller {
 		exit;
 	}
 
+	public function logoutAction(){
+		unset($_SERVER["PHP_AUTH_USER"]);
+		unset($_SERVER["PHP_AUTH_PW"]);
+		echo "success";
+		exit;
+		return $this->redirect('/loginlist');
+	}
+
 	public function registerAction(){
 		$data = array(
 			'name' => 'jssdk for coach_einvite',
