@@ -181,6 +181,11 @@ body{
     margin: 0 0 10% 0;
 }
 
+.btnArea .ruleLink.inside_rulelink{
+    padding: 6px 0;
+    color: #000;
+}
+
 
 /* 6plus */
 
