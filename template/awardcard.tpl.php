@@ -37,7 +37,7 @@
 		<div class="modelcon" id="conscroll">
 			<div class="infoCon">
 				<div class="infoText">
-					<a href="tel:021-20676111"></a>
+					<!-- <a href="tel:021-20676111"></a> -->
 					<img src="./vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
 				</div>
 			</div>
