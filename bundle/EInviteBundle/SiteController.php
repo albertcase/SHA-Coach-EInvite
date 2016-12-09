@@ -56,6 +56,28 @@ class SiteController extends Controller {
 		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
 
+	public function loginlistAction(){
+		if(isset($_SESSION['logout'])){
+			if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
+				unset($_SESSION['logout']);
+				return $this->redirect('/loginlist');
+			}
+		}
+		if(!isset($_GET['action']) || $_GET['action'] != 'logout'){
+			if (isset($_SERVER['PHP_AUTH_USER'])) {
+				if($_SERVER['PHP_AUTH_USER'] == COACH_NAME && $_SERVER['PHP_AUTH_PW'] == COACH_PWD){
+					unset($_SESSION['logout']);
+					return $this->render('loginlist');
+				}
+			}
+		}
+		$_SESSION['logout'] = 'logout';
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Text to send if user hits Cancel button';
+    exit;
+	}
+
 	public function oauth3Action(){
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
