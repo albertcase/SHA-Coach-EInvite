@@ -43,7 +43,7 @@
 			</div>
 			<div class="qr-ctn" id="qrcodeCanvas"></div>
 			<img src="./vfile/img/jpTips.png" width="100%" >
-			<a class="ruleLink inside_rulelink" href="http://url.cn/41PId89" target="_blank"><u>了解活动详情</u></a>
+			<a class="ruleLink_inside" href="http://url.cn/41PId89" target="_blank"><u>了解活动详情</u></a>
 		</div>
 
 	</div>

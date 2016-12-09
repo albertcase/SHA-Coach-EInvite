@@ -117,7 +117,7 @@ body{
     z-index: 3;
 }
 
-.btnArea .ruleLink, .ruleLink{
+.btnArea .ruleLink{
     width: 100%;
     padding: 3px 0;
     color: #000;
@@ -179,6 +179,14 @@ body{
 .qr-ctn{
     display: inline-block;
     margin: 0 0 10% 0;
+}
+
+.ruleLink_inside{
+    width: 100%;
+    padding: 3px 0;
+    color: #000;
+    font-size: 1.2rem;
+    display: inline-block;
 }
 
 
