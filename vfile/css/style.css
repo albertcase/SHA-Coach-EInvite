@@ -44,7 +44,7 @@ body{
 
 .logo{
     display: inline-block;
-    margin: 10% 0 8% 0;
+    margin: 9% 0 7% 0;
 }
 
 .telArea{
@@ -178,7 +178,7 @@ body{
 
 .qr-ctn{
     display: inline-block;
-    margin: 0 0 10% 0;
+    margin: 0 0 6% 0;
 }
 
 .ruleLink_inside{
@@ -194,7 +194,7 @@ body{
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
     .infoCon{
-        margin: 10% 0;
+        margin: 8% 0;
     }
 
 }
@@ -202,7 +202,7 @@ body{
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
     .infoCon{
-        margin: 10% 0;
+        margin: 8% 0;
     }
 }
 
