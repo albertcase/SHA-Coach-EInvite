@@ -43,7 +43,7 @@
 			</div>
 			<div class="qr-ctn" id="qrcodeCanvas"></div>
 			<img src="./vfile/img/jpTips.png" width="100%" >
-			<a class="ruleLink_inside" href="http://url.cn/41PId89" target="_blank"><img src="./vfile/img/rulelink.png" width="30%" /></a>
+			<a class="ruleLink_inside" href="http://url.cn/41PId89" target="_blank"><img src="./vfile/img/rulelink.png" width="22%" /></a>
 		</div>
 
 	</div>
