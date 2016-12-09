@@ -19,8 +19,8 @@ class myphpExcel{
       "callnumber" => "手机号",
       "guide" => "SA",
       "meettime" => "入场场次",
-      "meet1status" => "14：30签到状态",
-      "meet2status" => "16：30签到状态",
+      "meet1status" => "13：30签到状态",
+      "meet2status" => "15：30签到状态",
       "inmeettime" => "实际到场时间"
     );
     $keys = array_keys($data[0]);
@@ -79,8 +79,8 @@ class myphpExcel{
       "callnumber" => "手机号",
       "guide" => "SA",
       "meettime" => "入场场次",
-      "meet1status" => "14：30签到状态",
-      "meet2status" => "16：30签到状态",
+      "meet1status" => "13：30签到状态",
+      "meet2status" => "15：30签到状态",
       "inmeettime" => "实际到场时间"
     );
     $keys = array_keys($data[0]);
