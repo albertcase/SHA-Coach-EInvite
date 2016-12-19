@@ -255,7 +255,7 @@ class DatabaseAPI {
 				'sex' => ($sex)?(($sex==1)?'男':'女'):'',
 				'callnumber' => $callnumber,
 				'guide' => $guide,
-				'meettime' => ($meettime)?(($meettime==1)?'14:30':'16:30'):'',
+				'meettime' => ($meettime)?(($meettime==1)?'13:30':'15:30'):'',
 				'meet1status' => ($meet1status)?'已签到':'未签到',
 				'meet2status' => ($meet2status)?'已签到':'未签到',
 				'inmeettime' => ($inmeettime)?date('Y-m-d H:i:s', $inmeettime):'',
