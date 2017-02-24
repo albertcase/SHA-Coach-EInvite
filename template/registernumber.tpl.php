@@ -56,7 +56,7 @@
 <div class="dreambox ycenter">
 <div style="font-size: 56px; color: #f60; position: absolute; left: 0;
 top: 30%; z-index: 11; width: 100%;
- text-align: center;">
+ text-align: center; display: none;">
 	<?php
 		$needSubscribe = isset($needSubscribe)?$needSubscribe:FALSE;
 		if($needSubscribe){
