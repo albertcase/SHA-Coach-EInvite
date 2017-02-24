@@ -119,7 +119,8 @@ if($city) {
 <script src="/vfile/js/public.js"></script>
 
 <script type="text/javascript">
-	var city = "<?php print $city;?>", needSubscribe = "<?php print isset($needSubscribe)?$needSubscribe:FALSE;?>";
+	// needSubscribe 判断是否关注 0/1
+	var city = "<?php print $city;?>", needSubscribe = "<?php print isset($needSubscribe)?$needSubscribe:FALSE;?>"; 
 
 	var LoadingImg = [
         "/vfile/img/bg.jpg",
