@@ -36,7 +36,8 @@ class SiteController extends Controller {
 		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/00e04201-01ae-4e1d-b8f4-d5b10f1f6f11");//base
 	}
 
-	public function registercardAction($city = 'shuzhou') {
+	public function registercardAction() {
+		$city = isset($_GET['city'])?$_GET['city']:'shuzhou';
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
 			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
@@ -57,7 +58,7 @@ class SiteController extends Controller {
 		}
 		if(!$info->awardcode)
 			return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
-		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
+		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime, 'city' => $city));
 	}
 
 	public function loginlistAction(){
@@ -89,6 +90,11 @@ class SiteController extends Controller {
 			return $this->redirect('/oauth2?callback='.urlencode($callback_url));
 		}
 		return $this->dataPrint("\nsuccess");
+	}
+
+	public function homeAction(){
+		$city = isset($_GET['city'])?$_GET['city']:'shuzhou';
+		return $this->render('home',array('city' => $city));
 	}
 
 	public function registernumberAction() {

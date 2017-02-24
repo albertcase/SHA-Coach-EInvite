@@ -7,6 +7,7 @@ class phoneNumber extends FormRequest{
   public function rule(){
     return array(
       'callnumber' => array('callnumber' => array()),
+      'city' => array('city' => array()),
     );
   }
 
@@ -42,5 +43,9 @@ class phoneNumber extends FormRequest{
 
   public function callnumber_Ckeck($key){
     return (bool)preg_match("/^[0-9]{6}+$/" ,trim($key));
+  }
+
+  public function city_Ckeck($key){
+    return (bool)preg_match("/^[A-Za-z_-]{30}+$/" ,trim($key));
   }
 }
