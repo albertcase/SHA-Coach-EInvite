@@ -17,9 +17,13 @@
 	<link rel="stylesheet" type="text/css" href="/vfile/css/style.css" />
 </head>
 
-
 <?php
 	$city = isset($city)?$city:'';
+	if($city == "suzhou" || $city == "xian"){
+		
+	}else{
+		$city = "other";
+	}
 ?>
 
 <body ng-app="app" class="<?php print $city;?>">
@@ -50,6 +54,19 @@
 
 
 <div class="dreambox ycenter">
+<div style="font-size: 56px; color: #f60; position: absolute; left: 0;
+top: 30%; z-index: 11; width: 100%;
+ text-align: center;">
+	<?php
+		$needSubscribe = isset($needSubscribe)?$needSubscribe:FALSE;
+		if($needSubscribe){
+			echo "1";
+		}else{
+			echo "0";
+		}
+	?>
+</div>
+	
 	<div class="container">
 		<img src="/vfile/img/logo.png" width="100%" alt="coach" class="logo">
 
@@ -109,14 +126,14 @@
 	var city = "<?php print $city;?>", needSubscribe = "<?php print isset($needSubscribe)?$needSubscribe:FALSE;?>"; 
 
 	var LoadingImg = [
-        "/vfile/img/bg.jpg",
-        "/vfile/img/info-1.png",
-        "/vfile/img/info-2.png",
+        "/vfile/img/other/bg.jpg",
+        "/vfile/img/other/info-1.png",
+        "/vfile/img/other/info-2.png",
         "/vfile/img/logo.png",
         "/vfile/img/re-enter-btn.png",
         "/vfile/img/receive-btn.png",
         "/vfile/img/share.png",
-        "/vfile/img/text-1.png",
+        "/vfile/img/other/text-1.png",
         "/vfile/img/text-2.png",
     ];
 

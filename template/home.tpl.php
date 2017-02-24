@@ -18,6 +18,11 @@
 
 <?php
 	$city = isset($city)?$city:'';
+	if($city == "suzhou" || $city == "xian"){
+		
+	}else{
+		$city = "other";
+	}
 ?>
 
 
@@ -140,8 +145,8 @@
 	eventMethod.focusFun("#identifier");
 
 	var LoadingImg = [
-        "/vfile/pc/img/bg.jpg",
-         "/vfile/pc/img/slogan.png",
+        "/vfile/pc/img/other/bg.jpg",
+         "/vfile/pc/img/other/slogan.png",
         "/vfile/pc/img/logo.png"
     ],setT;
 

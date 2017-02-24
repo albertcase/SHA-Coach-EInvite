@@ -18,6 +18,11 @@
 </head>
 <?php
 	$city = isset($city)?$city:'';
+	if($city == "suzhou" || $city == "xian"){
+		
+	}else{
+		$city = "other";
+	}
 ?>
 
 <body class="<?php print $city;?>">
