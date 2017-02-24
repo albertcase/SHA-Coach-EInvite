@@ -1,12 +1,13 @@
 <?php
 
 $routers = array();
-$routers['/%'] = array('EInviteBundle\Site', 'registercard');
+$routers['/'] = array('EInviteBundle\Site', 'registercard');
 $routers['/registernumber'] = array('EInviteBundle\Site', 'registernumber');
 $routers['/awardcard'] = array('EInviteBundle\Site', 'awardcard');
 $routers['/oauth2'] = array('EInviteBundle\Site', 'oauth2');
 $routers['/oauth3'] = array('EInviteBundle\Site', 'oauth3');
 $routers['/loginlist'] = array('EInviteBundle\Site', 'loginlist');
+$routers['/home'] = array('EInviteBundle\Site', 'home');
 
 $routers['/api/demonlogin'] = array('EInviteBundle\Api', 'demonlogin');
 $routers['/api/submit'] = array('EInviteBundle\Api', 'submit');
