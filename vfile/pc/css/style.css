@@ -12,6 +12,17 @@ body.heightbg100{
     background-size: auto 100%;
 }
 
+body.suzhou{
+    background: #000 url('../img/suzhou/bg.jpg') no-repeat center;
+    background-size: 100% auto;
+}
+
+body.suzhou.heightbg100{
+    background: #000 url('../img/suzhou/bg.jpg') no-repeat center;
+    background-size: auto 100%;
+}
+
+
 .loading_con{
     margin-top: -9%; 
 }
