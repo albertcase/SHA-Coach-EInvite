@@ -53,12 +53,13 @@ class SiteController extends Controller {
 			}else{
 				$_trytimes = intval(3 - $info->trytimes);
 			}
+			if(!$info->awardcode)
+				return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
+			return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime, 'city' => $city));
 		}else{
 			$_trytimes = 0;
-		}
-		if(!$info->awardcode)
 			return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
-		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime, 'city' => $city));
+		}
 	}
 
 	public function loginlistAction(){
