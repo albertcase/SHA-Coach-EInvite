@@ -19,17 +19,10 @@
 
 
 <?php
-$city = isset($city)?$city:'';
-if($city) {
+	$city = isset($city)?$city:'';
 ?>
-	<body ng-app="app" class="<?php print $city;?>">
-<?php
-} else {?>
-    <body ng-app="app">
-<?php
-}?>
 
-
+<body ng-app="app" class="<?php print $city;?>">
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat?v=001"></script>
 <script src="/vfile/js/jquery.js"></script>
 <script src="/vfile/js/PxLoader.js"></script>
@@ -59,15 +52,8 @@ if($city) {
 <div class="dreambox ycenter">
 	<div class="container">
 		<img src="/vfile/img/logo.png" width="100%" alt="coach" class="logo">
-		<?php
-		if($city) {
-		?>
-			<img src="/vfile/img/<?php print $city;?>/text-1.png" width="100%" >
-		<?php
-		} else {?>
-		    <img src="/vfile/img/text-1.png" width="100%" >
-		<?php
-		}?>
+
+		<img src="/vfile/img/<?php print $city;?>/text-1.png" width="100%" >
 		
 		<div class="modelcon ycenter">
 				<div class="telArea">
@@ -186,7 +172,8 @@ if($city) {
 		}else{
 			$(this).addClass('disable');
 			var submitPushData = {
-				"callnumber": _gn
+				"callnumber": _gn,
+				"city": city
 			}
 			pfun.ajaxFun("POST", "/api/submit", submitPushData, "json", submitCallback);
 		}

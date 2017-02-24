@@ -16,8 +16,11 @@
 	<link rel="stylesheet" type="text/css" href="/vfile/css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="/vfile/css/style.css" />
 </head>
-<body>
+<?php
+	$city = isset($city)?$city:'';
+?>
 
+<body class="<?php print $city;?>">
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat?v=001"></script>
 <script src="/vfile/js/jquery.js"></script>
 
@@ -37,20 +40,8 @@
 		<div class="modelcon" id="conscroll">
 			<div class="infoCon">
 				<div class="infoText">
-					<!-- <a href="tel:021-20676111"></a> -->
-
-					<?php
-					$city = isset($city)?$city:'';
-					if($city) {
-					?>
-						<img src="/vfile/img/<?php print $city;?>/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
-					<?php
-					} else {?>
-					    <img src="/vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
-					<?php
-					}?>
-
-					
+					<!-- <a href="tel:021-20676111"></a> -->	
+					<img src="/vfile/img/<?php print $city;?>/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
 				</div>
 			</div>
 			<div class="qr-ctn" id="qrcodeCanvas"></div>
