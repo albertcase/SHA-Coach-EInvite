@@ -36,7 +36,7 @@
 <div class="dreambox ycenter">
 	<div class="container">
 		<img src="/vfile/img/logo.png" width="100%" alt="coach" class="logo">
-		<img src="/vfile/img/text-1.png" width="100%" >
+		<img src="/vfile/img/<?php print $city;?>/text-1.png" width="100%" >
 		<div class="modelcon" id="conscroll">
 			<div class="infoCon">
 				<div class="infoText">
