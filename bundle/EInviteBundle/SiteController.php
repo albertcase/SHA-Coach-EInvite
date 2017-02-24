@@ -44,15 +44,19 @@ class SiteController extends Controller {
 		}
 		$_db = new \Lib\DatabaseAPI();
 		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
-		if(!$info = $_db->findFileByOpenid($openid))
-			return $this->render('registernumber', array('trytimes' => '0'));
-		if($info->trytimes > 3){
-			$_trytimes = 0;
+		$public = new \Lib\Public();
+		$needSubscribe = $public->checkNeedSubscribe($openid, $city);
+		if($info = $_db->findFileByOpenid($openid)){
+			if($info->trytimes > 3){
+				$_trytimes = 0;
+			}else{
+				$_trytimes = intval(3 - $info->trytimes);
+			}
 		}else{
-			$_trytimes = intval(3 - $info->trytimes);
+			$_trytimes = 0;
 		}
 		if(!$info->awardcode)
-			return $this->render('registernumber', array('trytimes' => $_trytimes));
+			return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe));
 		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
 
