@@ -16,11 +16,11 @@ class DatabaseAPI {
 		$this->db->query('SET NAMES UTF8');
 	}
 
-	public function findFileByOpenid($openid){
-		$sql = "SELECT coach_userinfo.trytimes,coach_award.awardcode,coach_award.meettime FROM coach_userinfo LEFT JOIN coach_award ON coach_award.openid = coach_userinfo.openid WHERE coach_userinfo.openid = ?";
+	public function findFileByOpenid($openid, $city = ''){
+		$sql = "SELECT coach_userinfo.trytimes,coach_award.awardcode,coach_award.meettime FROM coach_userinfo LEFT JOIN coach_award ON coach_award.openid = coach_userinfo.openid WHERE coach_userinfo.openid = ? AND  coach_award.city = ?";
 		// $sql = "SELECT `awardcode`, FROM `coach_einvite` WHERE `openid` = ?";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("s", $openid);
+		$res->bind_param("ss", $openid, $city);
 		$res->execute();
 		$res->bind_result($trytimes,$awardcode,$meettime);
 		if($res->fetch()) {
@@ -33,8 +33,8 @@ class DatabaseAPI {
 		return false;
 	}
 
-	public function registerAward($openid,$callnumber){
-		if(!$res = $this->checkCallnumber($callnumber)){
+	public function registerAward($openid, $callnumber, $city = ''){
+		if(!$res = $this->checkCallnumber($callnumber, $city)){
 			$this->insertTry($openid);
 			return 'A';//not have this callnumber;
 		}
@@ -42,10 +42,10 @@ class DatabaseAPI {
 			return 'B';//alread registered
 		if($this->insertTry($openid) === 'A')
 			return 'E';//not have this openid
-		$sql = "UPDATE `coach_award` SET `openid` = ?,`awardcode` = ? WHERE `callnumber` LIKE '%{$callnumber}'";
+		$sql = "UPDATE `coach_award` SET `openid` = ?,`awardcode` = ? WHERE `city` = ? AND `callnumber` LIKE '%{$callnumber}'";
 		$res = $this->db->prepare($sql);
-		$code = md5('openid'.$openid);
-		$res->bind_param("ss", $openid,$code);
+		$code = md5('openid'.$openid.$city);
+		$res->bind_param("sss", $openid, $code, $city);
 		if($res->execute())
 			return 'C';//update success
 		return 'D';//update errors
