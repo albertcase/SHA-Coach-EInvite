@@ -272,10 +272,10 @@ class DatabaseAPI {
 	}
 
 	public function allAwardInfo(){
-		$sql = "SELECT `memname`,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide`,`awardcode` FROM `coach_award`";
+		$sql = "SELECT `memname`, `city`,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide`,`awardcode` FROM `coach_award`";
 		$res = $this->db->prepare($sql);
 		$res->execute();
-		$res->bind_result($memname, $sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide, $awardcode);
+		$res->bind_result($memname, $city ,$sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide, $awardcode);
 		$out = array();
 		while($res->fetch()) {
 			array_push($out, array(
@@ -288,16 +288,17 @@ class DatabaseAPI {
 				'meet1status' => ($meet1status)?'已签到':'未签到',
 				'meet2status' => ($meet2status)?'已签到':'未签到',
 				'inmeettime' => ($inmeettime)?date('Y-m-d H:i:s', $inmeettime):'',
+				'city' => $city,
 			));
 		}
 		return $out;
 	}
 
 	public function allAwardInfo2(){
-		$sql = "SELECT `memname`,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide`,`awardcode`,`openid` FROM `coach_award`";
+		$sql = "SELECT `memname`, `city` ,`sex`,`callnumber`,`meettime`,`meet1status`,`meet2status`,`inmeettime`,`guide`,`awardcode`,`openid` FROM `coach_award`";
 		$res = $this->db->prepare($sql);
 		$res->execute();
-		$res->bind_result($memname, $sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide, $awardcode, $openid);
+		$res->bind_result($memname, $city, $sex, $callnumber, $meettime, $meet1status, $meet2status, $inmeettime, $guide, $awardcode, $openid);
 		$out = array();
 		while($res->fetch()) {
 			array_push($out, array(
@@ -311,6 +312,7 @@ class DatabaseAPI {
 				'meet1status' => ($meet1status)?'已签到':'未签到',
 				'meet2status' => ($meet2status)?'已签到':'未签到',
 				'inmeettime' => ($inmeettime)?date('Y-m-d H:i:s', $inmeettime):'',
+				'city' => $city,
 			));
 		}
 		return $out;
