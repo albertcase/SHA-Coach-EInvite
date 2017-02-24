@@ -12,19 +12,25 @@
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
 
-	<link rel="stylesheet" type="text/css" href="./vfile/css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="./vfile/pc/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/vfile/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/vfile/pc/css/style.css" />
 </head>
-<body>
 
-<script src="./vfile/js/jquery.js"></script>
-<script src="./vfile/js/PxLoader.js"></script>
-<script src="./vfile/js/public.js"></script>
+<?php
+	$city = isset($city)?$city:'';
+?>
+
+
+<body class="<?php print $city;?>">
+
+<script src="/vfile/js/jquery.js"></script>
+<script src="/vfile/js/PxLoader.js"></script>
+<script src="/vfile/js/public.js"></script>
 
 
 <div class="loading">
 	<div class="loading_con">
-		<img src="./vfile/img/logo.png" class="car">
+		<img src="/vfile/img/logo.png" class="car">
 
 		<div class="spinner">
 			<div class="bounce1"></div>
@@ -40,10 +46,10 @@
 		
 		<div class="pagecon">
 			<a href="javascript:;" class="logo">
-				<img src="./vfile/pc/img/logo.png" >
+				<img src="/vfile/pc/img/logo.png" >
 			</a>
 			<div class="slogan">
-				<img src="./vfile/pc/img/slogan.png" >
+				<img src="/vfile/pc/img/<?php print $city;?>/slogan.png" >
 			</div>
 			<div class="slidecon">
 	
@@ -78,10 +84,9 @@
 
 
 <script type="text/javascript">
-	
 	var eventMethod = {
 		scanStatus: false,
-		ajaxSrcArr: ["./api/loginmeets1", "./api/loginmeets2", "./api/logindinner"],
+		ajaxSrcArr: ["/api/loginmeets1", "/api/loginmeets2", "/api/logindinner"],
 		ntArr: ["", "13：30", "15：30"], 
 		visibleFun: function(n){
 			$(".slideModel").css({"visibility": "hidden"});
@@ -173,7 +178,7 @@
         	
     		if(eventMethod.identifierIsPass(identifier)){
     			console.log(identifier);
-        		pfun.ajaxFun("post", "./api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
+        		pfun.ajaxFun("post", "/api/guestinfo", guestinfoPushData, "json", guestinfoCallback);
         		//eventMethod.visibleFun(".checkin");
         	}else{
         		eventMethod.visibleFun(".errorTips");
