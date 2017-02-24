@@ -13,17 +13,30 @@
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
 
-	<link rel="stylesheet" type="text/css" href="./vfile/css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="./vfile/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/vfile/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/vfile/css/style.css" />
 </head>
-<body ng-app="app">
+
+
+<?php
+$city = isset($city)?$city:'';
+if($city) {
+?>
+	<body ng-app="app" class="<?php print $city;?>">
+<?php
+} else {?>
+    <body ng-app="app">
+<?php
+}?>
+
+
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat?v=001"></script>
-<script src="./vfile/js/jquery.js"></script>
-<script src="./vfile/js/PxLoader.js"></script>
+<script src="/vfile/js/jquery.js"></script>
+<script src="/vfile/js/PxLoader.js"></script>
 
 <div class="loading">
 	<div class="loading_con">
-		<img src="./vfile/img/logo.png" width="100%" class="car">
+		<img src="/vfile/img/logo.png" width="100%" class="car">
 
 		<div class="spinner">
 			<div class="bounce1"></div>
@@ -45,11 +58,20 @@
 
 <div class="dreambox ycenter">
 	<div class="container">
-		<img src="./vfile/img/logo.png" width="100%" alt="coach" class="logo">
-		<img src="./vfile/img/text-1.png" width="100%" >
+		<img src="/vfile/img/logo.png" width="100%" alt="coach" class="logo">
+		<?php
+		if($city) {
+		?>
+			<img src="/vfile/img/<?php print $city;?>/text-1.png" width="100%" >
+		<?php
+		} else {?>
+		    <img src="/vfile/img/text-1.png" width="100%" >
+		<?php
+		}?>
+		
 		<div class="modelcon ycenter">
 				<div class="telArea">
-					<img src="./vfile/img/text-2.png" width="100%" >
+					<img src="/vfile/img/text-2.png" width="100%" >
 					<div class="telInput">
 						<input type="tel" maxlength="6" size="6">
 					</div>
@@ -87,16 +109,17 @@
 		</div>
 
 		<div class="btnArea">
-			<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="./vfile/img/receive-btn.png" width="100%" alt="领取"></span>
-			<span class="btn re-enter-btn"><a href="javascript:;"></a><img src="./vfile/img/re-enter-btn.png" width="100%" alt="重新输入"></span>
-			<a class="ruleLink" href="http://url.cn/41PId89" target="_blank"><img src="./vfile/img/rulelink.png" width="25%" /></a>
+			<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="/vfile/img/receive-btn.png" width="100%" alt="领取"></span>
+			<span class="btn re-enter-btn"><a href="javascript:;"></a><img src="/vfile/img/re-enter-btn.png" width="100%" alt="重新输入"></span>
+			<a class="ruleLink" href="http://url.cn/41PId89" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>
 		</div>
 
 	</div>
 </div>
-<script src="./vfile/js/public.js"></script>
+<script src="/vfile/js/public.js"></script>
 
 <script type="text/javascript">
+	var city = "<?php print $city;?>", needSubscribe = "<?php print isset($needSubscribe)?$needSubscribe:FALSE;?>";
 
 	var LoadingImg = [
         "/vfile/img/bg.jpg",
@@ -164,7 +187,7 @@
 			var submitPushData = {
 				"callnumber": _gn
 			}
-			pfun.ajaxFun("POST", "./api/submit", submitPushData, "json", submitCallback);
+			pfun.ajaxFun("POST", "/api/submit", submitPushData, "json", submitCallback);
 		}
 	})
 

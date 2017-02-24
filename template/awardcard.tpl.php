@@ -13,13 +13,13 @@
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
 
-	<link rel="stylesheet" type="text/css" href="./vfile/css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="./vfile/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/vfile/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/vfile/css/style.css" />
 </head>
 <body>
 
 <script src="http://coach.samesamechina.com/api/v1/js/049df0b9-8261-45ca-8d27-f860d7e7452b/wechat?v=001"></script>
-<script src="./vfile/js/jquery.js"></script>
+<script src="/vfile/js/jquery.js"></script>
 
 <!-- 横屏代码 -->
 <div id="orientLayer" class="mod-orient-layer">
@@ -32,25 +32,37 @@
 
 <div class="dreambox ycenter">
 	<div class="container">
-		<img src="./vfile/img/logo.png" width="100%" alt="coach" class="logo">
-		<img src="./vfile/img/text-1.png" width="100%" >
+		<img src="/vfile/img/logo.png" width="100%" alt="coach" class="logo">
+		<img src="/vfile/img/text-1.png" width="100%" >
 		<div class="modelcon" id="conscroll">
 			<div class="infoCon">
 				<div class="infoText">
 					<!-- <a href="tel:021-20676111"></a> -->
-					<img src="./vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
+
+					<?php
+					$city = isset($city)?$city:'';
+					if($city) {
+					?>
+						<img src="/vfile/img/<?php print $city;?>/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
+					<?php
+					} else {?>
+					    <img src="/vfile/img/info-<?php print isset($meettime)?$meettime:'1';?>.png" width="100%" >
+					<?php
+					}?>
+
+					
 				</div>
 			</div>
 			<div class="qr-ctn" id="qrcodeCanvas"></div>
-			<img src="./vfile/img/jpTips.png" width="100%" >
-			<a class="ruleLink_inside" href="http://url.cn/41PId89" target="_blank"><img src="./vfile/img/rulelink.png" width="25%" /></a>
+			<img src="/vfile/img/jpTips.png" width="100%" >
+			<a class="ruleLink_inside" href="http://url.cn/41PId89" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>
 		</div>
 
 	</div>
 </div>
 
-<script src="./vfile/js/public.js"></script>
-<script type="text/javascript" src="./vfile/js/jquery.qrcode.min.js"></script>
+<script src="/vfile/js/public.js"></script>
+<script type="text/javascript" src="/vfile/js/jquery.qrcode.min.js"></script>
 <script>
 	window.onload = function(){
     var time = "<?php print $meettime;?>";
