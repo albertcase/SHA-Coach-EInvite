@@ -1,7 +1,7 @@
 <?php
 
 $routers = array();
-$routers['/'] = array('EInviteBundle\Site', 'registercard');
+$routers['/%'] = array('EInviteBundle\Site', 'registercard');
 $routers['/registernumber'] = array('EInviteBundle\Site', 'registernumber');
 $routers['/awardcard'] = array('EInviteBundle\Site', 'awardcard');
 $routers['/oauth2'] = array('EInviteBundle\Site', 'oauth2');

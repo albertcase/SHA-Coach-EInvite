@@ -36,7 +36,7 @@ class SiteController extends Controller {
 		return $this->redirect("http://coach.samesamechina.com/api/wechat/oauth/auth/00e04201-01ae-4e1d-b8f4-d5b10f1f6f11");//base
 	}
 
-	public function registercardAction() {
+	public function registercardAction($city = 'shuzhou') {
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
 			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
