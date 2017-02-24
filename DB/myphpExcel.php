@@ -21,7 +21,8 @@ class myphpExcel{
       "meettime" => "入场场次",
       "meet1status" => "13：30签到状态",
       "meet2status" => "15：30签到状态",
-      "inmeettime" => "实际到场时间"
+      "inmeettime" => "实际到场时间",
+      "city" => "城市",
     );
     $keys = array_keys($data[0]);
     $k = 65;
@@ -81,7 +82,8 @@ class myphpExcel{
       "meettime" => "入场场次",
       "meet1status" => "13：30签到状态",
       "meet2status" => "15：30签到状态",
-      "inmeettime" => "实际到场时间"
+      "inmeettime" => "实际到场时间",
+      "city" => "城市",
     );
     $keys = array_keys($data[0]);
     $k = 65;

@@ -30,6 +30,7 @@ class downloadData{
   public function translate($in){
     $tr = array(
       "memname" => "名字",
+      "city" => "城市",
       "sex" => "性别",
       "callnumber" => "手机号",
       "meettime" => "入场场次",

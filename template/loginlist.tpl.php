@@ -45,7 +45,8 @@
           { "data": "meettime" },
           { "data": "meet1status" },
           { "data": "meet2status" },
-          { "data": "inmeettime" }
+          { "data": "inmeettime" },
+					{ "data": "city" }
         ]
       } );
     } );
@@ -65,6 +66,7 @@
 						<th>13：30签到状态</th>
             <th>15：30签到状态</th>
 						<th>实际到场时间</th>
+						<th>城市</th>
 					</tr>
 				</thead>
 			</table>
