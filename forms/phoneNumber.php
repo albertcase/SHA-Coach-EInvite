@@ -23,13 +23,13 @@ class phoneNumber extends FormRequest{
     $openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
     if(!$openid)
       return array('code' => '2' ,'msg' => '您还未登陆');
-    if($info = $_db->findFileByOpenid($openid)){
+    if($info = $_db->findFileByOpenid($openid, $this->getdata['city'])){
       if($info->trytimes > 3)
         return array('code' => '7' ,'msg' => '您已经超过注册次数');
       if($info->awardcode)
         return array('code' => '6' ,'msg' => '您已经注册过');
     }
-    $result = $_db->registerAward($openid,$this->getdata['callnumber']);
+    $result = $_db->registerAward($openid, $this->getdata['callnumber'], $this->getdata['city']);
     if($result == 'A')
       return array('code' => '9' ,'msg' => '号码不存在');
     if($result == 'B')

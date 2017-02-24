@@ -28,7 +28,7 @@ CREATE TABLE `coach_award` (
   `awardcode` varchar(100) DEFAULT NULL,
   `callnumber` varchar(50) DEFAULT NULL,
   `memname` varchar(50) DEFAULT NULL,
-  `city` varchar(50) DEFAULT 'shuzhou',
+  `city` varchar(50) DEFAULT '',
   `sex` enum('0','1','2') NOT NULL DEFAULT '0' COMMENT '性别，0未定义，1男，2女',
   `guide` varchar(50) DEFAULT NULL,
   `meettime` enum('1','2') NOT NULL DEFAULT '1' COMMENT '用户场次.1,1.30，2,3.30',
