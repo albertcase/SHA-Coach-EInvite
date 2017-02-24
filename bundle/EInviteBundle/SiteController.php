@@ -56,7 +56,7 @@ class SiteController extends Controller {
 			$_trytimes = 0;
 		}
 		if(!$info->awardcode)
-			return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe));
+			return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
 		return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime));
 	}
 
