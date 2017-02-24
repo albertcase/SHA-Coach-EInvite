@@ -17,15 +17,14 @@ class DatabaseAPI {
 	}
 
 	public function findFileByOpenid($openid, $city = ''){
-		$sql = "SELECT coach_userinfo.trytimes,coach_award.awardcode,coach_award.meettime FROM coach_userinfo LEFT JOIN coach_award ON coach_award.openid = coach_userinfo.openid WHERE coach_userinfo.openid = ? AND  coach_award.city = ?";
+		$sql = "SELECT coach_award.awardcode,coach_award.meettime FROM coach_award WHERE coach_award.openid = ? AND  coach_award.city = ?";
 		// $sql = "SELECT `awardcode`, FROM `coach_einvite` WHERE `openid` = ?";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("ss", $openid, $city);
 		$res->execute();
-		$res->bind_result($trytimes,$awardcode,$meettime);
+		$res->bind_result($awardcode,$meettime);
 		if($res->fetch()) {
 			$result = new \stdClass();
-			$result->trytimes = $trytimes;
 			$result->awardcode = $awardcode;
 			$result->meettime = $meettime;
 			return $result;
@@ -35,12 +34,12 @@ class DatabaseAPI {
 
 	public function registerAward($openid, $callnumber, $city = ''){
 		if(!$res = $this->checkCallnumber($callnumber, $city)){
-			$this->insertTry($openid);
+			$this->insertTry($openid, $city);
 			return 'A';//not have this callnumber;
 		}
 		if($res->openid)
 			return 'B';//alread registered
-		if($this->insertTry($openid) === 'A')
+		if($this->insertTry($openid, $city) === 'A')
 			return 'E';//not have this openid
 		$sql = "UPDATE `coach_award` SET `openid` = ?,`awardcode` = ? WHERE `city` = ? AND `callnumber` LIKE '%{$callnumber}'";
 		$res = $this->db->prepare($sql);
@@ -51,12 +50,24 @@ class DatabaseAPI {
 		return 'D';//update errors
 	}
 
-	public function insertTry($openid){
+	public function insertTry($openid, $city){
 		if(!$this->checkOpenid($openid))
 			return 'A';//not have this user
-		$sql = "UPDATE `coach_userinfo` SET `trytimes` = `trytimes` + 1 WHERE `openid` = ?";
+		if(!$this->checkTrytimes($openid, $city)){
+			$this->firstTry($openid, $city);
+		}
+		$sql = "UPDATE `coach_trytimes` SET `trytimes` = `trytimes` + 1 WHERE `openid` = ? AND `city` = ?";
 		$res = $this->db->prepare($sql);
-		$res->bind_param("s", $openid);
+		$res->bind_param("ss", $openid, $city);
+		if($res->execute())
+			return true;
+		return false;
+	}
+
+	public function firstTry($openid, $city){
+		$sql = "INSERT INTO `coach_trytimes` SET `openid` = ?, `city` = ?";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("ss", $openid, $city);
 		if($res->execute())
 			return true;
 		return false;
@@ -75,13 +86,29 @@ class DatabaseAPI {
 	}
 
 	public function checkOpenid($openid){
-		$sql = "SELECT `trytimes` FROM `coach_userinfo` WHERE `openid` = ? ";
+		$sql = "SELECT `id` FROM `coach_userinfo` WHERE `openid` = ? ";
 		$res = $this->db->prepare($sql);
 		$res->bind_param("s", $openid);
 		$res->execute();
-		$res->bind_result($trytimes);
+		$res->bind_result($id);
 		if($res->fetch()) {
 			$result = new \stdClass();
+			$result->id = $id;
+			return $result;
+		}
+		return false;
+	}
+
+	public function checkTrytimes($openid, $city = ''){
+		$sql = "SELECT `id`,`openid`,`trytimes` FROM `coach_trytimes` WHERE `openid` = ? AND `city` = ?";
+		$res = $this->db->prepare($sql);
+		$res->bind_param("ss", $openid, $city);
+		$res->execute();
+		$res->bind_result($id, $openid, $trytimes);
+		if($res->fetch()) {
+			$result = new \stdClass();
+			$result->id = $id;
+			$result->openid = $openid;
 			$result->trytimes = $trytimes;
 			return $result;
 		}
@@ -102,9 +129,11 @@ class DatabaseAPI {
 		return false;
 	}
 
-	public function checkCallnumber($number){
-		$sql = "SELECT `openid`,`callnumber` FROM `coach_award` WHERE `callnumber` LIKE '%{$number}' ";
+	public function checkCallnumber($number, $city){
+		$number = intval($number);
+		$sql = "SELECT `openid`,`callnumber` FROM `coach_award` WHERE `city` = ? AND `callnumber` LIKE '%{$number}' ";
 		$res = $this->db->prepare($sql);
+		$res->bind_param("s", $city);
 		$res->execute();
 		$res->bind_result($openid,$callnumber);
 		if($res->fetch()) {

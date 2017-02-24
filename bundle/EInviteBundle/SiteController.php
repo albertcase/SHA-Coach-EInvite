@@ -47,19 +47,22 @@ class SiteController extends Controller {
 		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
 		$public = new \Lib\PublicFun();
 		$needSubscribe = $public->checkNeedSubscribe($openid, $city);
+		if(!$_db->checkOpenid($openid))
+			return $this->render('registernumber', array('trytimes' => '0', 'needSubscribe' => $needSubscribe, 'city' => $city));
 		if($info = $_db->findFileByOpenid($openid, $city)){
-			if($info->trytimes > 3){
+			if(isset($info->awardcode) && $info->awardcode)
+				return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime, 'city' => $city));
+		}
+		if($times = $_db->checkTrytimes($openid, $city)){
+			if($times->trytimes > 3){
 				$_trytimes = 0;
 			}else{
-				$_trytimes = intval(3 - $info->trytimes);
+				$_trytimes = intval(3 - $times->trytimes);
 			}
-			if(!$info->awardcode)
-				return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
-			return $this->render('awardcard', array('awardcode' => $info->awardcode,'meettime' => $info->meettime, 'city' => $city));
 		}else{
-			$_trytimes = 0;
-			return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
+			$_trytimes = 3;
 		}
+		return $this->render('registernumber', array('trytimes' => $_trytimes, 'needSubscribe' => $needSubscribe, 'city' => $city));
 	}
 
 	public function loginlistAction(){

@@ -64,7 +64,6 @@ CREATE TABLE `coach_userinfo` (
   `openid` varchar(100) DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
   `userhandurl` varchar(500) DEFAULT NULL,
-  `trytimes` int(3) DEFAULT '0',
   `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `openid` (`openid`)
@@ -91,3 +90,15 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-10-13  6:24:43
+DROP TABLE IF EXISTS `coach_trytimes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coach_trytimes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(100) DEFAULT NULL,
+  `trytimes` int(3) DEFAULT '0',
+  `city` varchar(50) DEFAULT '',
+  `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;

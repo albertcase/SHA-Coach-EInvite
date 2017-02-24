@@ -23,10 +23,12 @@ class phoneNumber extends FormRequest{
     $openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
     if(!$openid)
       return array('code' => '2' ,'msg' => '您还未登陆');
-    if($info = $_db->findFileByOpenid($openid, $this->getdata['city'])){
-      if($info->trytimes > 3)
+    if($time = $_db->checkTrytimes($openid, $this->getdata['city'])){
+      if(isset($time->trytimes) && $time->trytimes > 3)
         return array('code' => '7' ,'msg' => '您已经超过注册次数');
-      if($info->awardcode)
+    }
+    if($info = $_db->findFileByOpenid($openid, $this->getdata['city'])){
+      if(isset($info->awardcode) && $info->awardcode)
         return array('code' => '6' ,'msg' => '您已经注册过');
     }
     $result = $_db->registerAward($openid, $this->getdata['callnumber'], $this->getdata['city']);
@@ -46,6 +48,6 @@ class phoneNumber extends FormRequest{
   }
 
   public function city_Ckeck($key){
-    return (bool)preg_match("/^[A-Za-z_-]{30}+$/" ,trim($key));
+    return (bool)preg_match("/^[A-Za-z_-]{0,30}$/" ,trim($key));
   }
 }
