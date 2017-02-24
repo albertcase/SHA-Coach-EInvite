@@ -18,7 +18,7 @@ class PublicFun {
 
  public function needSubscribe($city){
    $needcitys = array();
-   if(isset($needcitys[$city]))
+   if(in_array($city, $needcitys))
     return TRUE;
   return FALSE;
  }
