@@ -37,7 +37,7 @@ class SiteController extends Controller {
 	}
 
 	public function registercardAction() {
-		$city = isset($_GET['city'])?$_GET['city']:'shuzhou';
+		$city = isset($_GET['city'])?$_GET['city']:'suzhou';
 		if(!isset($_SESSION['openid'])){
 			unset($_SESSION['oauthuser']);
 			$callback_url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
@@ -93,7 +93,7 @@ class SiteController extends Controller {
 	}
 
 	public function homeAction(){
-		$city = isset($_GET['city'])?$_GET['city']:'shuzhou';
+		$city = isset($_GET['city'])?$_GET['city']:'suzhou';
 		return $this->render('home',array('city' => $city));
 	}
 
