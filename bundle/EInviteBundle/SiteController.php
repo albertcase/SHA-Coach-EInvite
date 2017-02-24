@@ -44,7 +44,7 @@ class SiteController extends Controller {
 		}
 		$_db = new \Lib\DatabaseAPI();
 		$openid = isset($_SESSION['openid'])?$_SESSION['openid']:'';
-		$public = new \Lib\Public();
+		$public = new \Lib\PublicFun();
 		$needSubscribe = $public->checkNeedSubscribe($openid, $city);
 		if($info = $_db->findFileByOpenid($openid)){
 			if($info->trytimes > 3){

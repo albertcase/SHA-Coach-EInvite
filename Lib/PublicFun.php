@@ -1,7 +1,7 @@
 <?php
 namespace Lib;
 
-class Public {
+class PublicFun {
 
  public function checkNeedSubscribe($openid, $city){
   if(!$this->needSubscribe($city))
