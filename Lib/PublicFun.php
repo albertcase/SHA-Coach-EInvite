@@ -17,7 +17,7 @@ class PublicFun {
  }
 
  public function needSubscribe($city){
-   $needcitys = array();
+   $needcitys = require_once dirname(__FILE__).'/../config/needcitys.php';
    if(in_array($city, $needcitys))
     return TRUE;
   return FALSE;
