@@ -37,6 +37,8 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
 
     public function insertintoSql(){
       $file = $_FILES;
+      if(!isset($file["coachvip"]))
+        return array('code' => '9', 'msg' => 'upload file errors');
       $uploadname = dirname(__FILE__)."/r1018.xls";
       $result = move_uploaded_file($file["coachvip"]["tmp_name"],$uploadname);
       $result = true;
