@@ -14,9 +14,9 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
 
     public function insertIntoUser($data){
       // print_r($data);
-      $sql = "INSERT INTO `coach_award` SET `meettime` = ?, `guide` = ?, `sex` = ?, `memname` = ?, `callnumber` = ? ";
+      $sql = "INSERT INTO `coach_award` SET `meettime` = ?, `guide` = ?, `sex` = ?, `memname` = ?, `callnumber` = ? , `city` = ?";
       $res = $this->db->prepare($sql);
-      $res->bind_param("sssss", $data['meettime'], $data['guide'], $data['sex'],$data['memname'],$data['callnumber']);
+      $res->bind_param("ssssss", $data['meettime'], $data['guide'], $data['sex'], $data['memname'], $data['callnumber'], $data['city']);
       if($res->execute())
         return $res->insert_id;
       else
@@ -36,9 +36,9 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
     }
 
     public function insertintoSql(){
-      // $file = $_FILES;
-      $uploadname = "./r1018.xls";
-      // $result = move_uploaded_file($file["printempslogin"]["tmp_name"],$uploadname);
+      $file = $_FILES;
+      $uploadname = dirname(__FILE__)."/r1018.xls";
+      $result = move_uploaded_file($file["coachvip"]["tmp_name"],$uploadname);
       $result = true;
       if($result){
         $excel = $this->loadexcel5(realpath($uploadname));
@@ -62,7 +62,7 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
         for ($row ; $row <= $highestRow; $row++){
             for ($column = 'A'; $column <= $highestColumm; $column++) {
               $col = $title[$column];
-              if(in_array($col, array('callnumber','memname','sex', 'guide', 'meettime')))//control insert datas
+              if(in_array($col, array('callnumber','memname','sex', 'guide', 'meettime', 'city')))//control insert datas
                 $data[$col] = $this->translate(trim($sheet->getCell($column.$row)->getValue()));
             }
             if(implode($data)!=""){
@@ -89,6 +89,9 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
         '14:30:00' => 1,
         '女' => 2,
         '男' => 1,
+        '城市' => 'city',
+        '苏州' => 'suzhou',
+        '西安' => 'xian'
       );
       if(isset($strings[$key]))
         return $strings[$key];
@@ -97,5 +100,5 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
 }
 
 $myphpexcel = new myphpexcel();
-$myphpexcel->insertintoSql();
+print_r(json_encode($myphpexcel->insertintoSql()));
 ?>
