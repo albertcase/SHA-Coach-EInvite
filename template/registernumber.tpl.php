@@ -19,6 +19,8 @@
 
 <?php
 	$city = isset($city)?$city:'';
+	$needSubscribe = isset($needSubscribe)?$needSubscribe:FALSE;
+
 	if($city == "suzhou" || $city == "xian"){
 		
 	}else{
@@ -58,7 +60,6 @@
 top: 30%; z-index: 11; width: 100%;
  text-align: center; display: none;">
 	<?php
-		$needSubscribe = isset($needSubscribe)?$needSubscribe:FALSE;
 		if($needSubscribe){
 			echo "1";
 		}else{
@@ -74,10 +75,18 @@ top: 30%; z-index: 11; width: 100%;
 		
 		<div class="modelcon ycenter">
 				<div class="telArea">
-					<img src="/vfile/img/text-2.png" width="100%" >
-					<div class="telInput">
-						<input type="tel" maxlength="6" size="6">
-					</div>
+					<?php
+						if($city == "xian" && !$needSubscribe){
+							echo '<img src="/vfile/img/xian/attention.png" width="100%" >';
+						}else{
+							echo '<img src="/vfile/img/text-2.png" width="100%" >
+									<div class="telInput">
+										<input type="tel" maxlength="6" size="6">
+									</div>';
+						}
+					?>	
+
+					
 					<!-- <ul>
 						<li>
 							<input type="tel" maxlength="1" size="1">
@@ -110,12 +119,20 @@ top: 30%; z-index: 11; width: 100%;
 
 
 		</div>
+	
+		<?php
+			if($city == "xian" && !$needSubscribe){
+				
+			}else{
+				echo '<div class="btnArea">
+						<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="/vfile/img/receive-btn.png" width="100%" alt="领取"></span>
+						<span class="btn re-enter-btn"><a href="javascript:;"></a><img src="/vfile/img/re-enter-btn.png" width="100%" alt="重新输入"></span>
+						<a class="ruleLink" href="http://url.cn/41PId89" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>
+					</div>';
+			}
+		?>	
 
-		<div class="btnArea">
-			<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="/vfile/img/receive-btn.png" width="100%" alt="领取"></span>
-			<span class="btn re-enter-btn"><a href="javascript:;"></a><img src="/vfile/img/re-enter-btn.png" width="100%" alt="重新输入"></span>
-			<a class="ruleLink" href="http://url.cn/41PId89" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>
-		</div>
+		
 
 	</div>
 </div>
@@ -123,7 +140,7 @@ top: 30%; z-index: 11; width: 100%;
 
 <script type="text/javascript">
 	// needSubscribe 判断是否关注 0/1
-	var city = "<?php print $city;?>", needSubscribe = "<?php print isset($needSubscribe)?$needSubscribe:FALSE;?>"; 
+	var city = "<?php print $city;?>"; 
 
 	var LoadingImg = [
         "/vfile/img/other/bg.jpg",
