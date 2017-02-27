@@ -48,6 +48,17 @@ class phoneNumber extends FormRequest{
   }
 
   public function city_Ckeck($key){
-    return (bool)preg_match("/^[A-Za-z_-]{0,30}$/" ,trim($key));
+    $key = trim($key);
+    $citytrans = require_once dirname(__FILE__).'/../config/citytranslate.php';
+    $citylist = require_once dirname(__FILE__).'/../config/citylist.php';
+    if(isset($citytrans[$key])){
+      $this->getdata['city'] = $citytrans[$key];
+      $key = $citytrans[$key];
+    }
+    print_r($this->getdata['city']);
+    if(in_array($key, $citylist))
+      return true;
+    return false;
   }
+
 }
