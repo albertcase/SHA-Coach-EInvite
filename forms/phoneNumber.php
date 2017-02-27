@@ -55,7 +55,6 @@ class phoneNumber extends FormRequest{
       $this->getdata['city'] = $citytrans[$key];
       $key = $citytrans[$key];
     }
-    print_r($this->getdata['city']);
     if(in_array($key, $citylist))
       return true;
     return false;
