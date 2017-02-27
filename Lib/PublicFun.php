@@ -6,7 +6,7 @@ class PublicFun {
  public function checkNeedSubscribe($openid, $city){
   if(!$this->needSubscribe($city))
     return FALSE;
-  $url = "http://coach.samesamechina.com/v2/wx/users/{$openid}?access_token=zcBpBLWyAFy6xs3e7HeMPL9zWrd7Xy";
+  $url = "http://coach.samesamechina.com/v2/wx/users/no_cache/{$openid}?access_token=zcBpBLWyAFy6xs3e7HeMPL9zWrd7Xy";
   $userinfo = file_get_contents($url);
   $userinfo = json_decode($userinfo, true);
   if(isset($userinfo['code']) && $userinfo['code'] == '200'){
