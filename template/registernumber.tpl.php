@@ -222,7 +222,7 @@ top: 30%; z-index: 11; width: 100%;
 	function submitCallback(data){
 
 	    if(data.code == "10" || data.code == "6"){
-	    	window.location.reload();
+	    	location.reload();
 	    }else{
 			if(data.code != "8"){
 				coachEinviteMethod.count--;
