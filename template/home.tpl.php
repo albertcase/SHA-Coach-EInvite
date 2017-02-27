@@ -69,7 +69,11 @@
 					<ul class="checklist">
 						<li>13: 30活动签到</li>
 						<li>15: 30活动签到</li>
-						<li style="display: none;">晚宴签到</li>
+						<?php
+							if($city == "suzhou"){
+								echo '<li>晚宴签到</li>';
+							}
+						?>	
 					</ul>
 				</div>
 
