@@ -76,7 +76,7 @@ top: 30%; z-index: 11; width: 100%;
 		<div class="modelcon ycenter">
 				<div class="telArea">
 					<?php
-						if($needSubscribe){
+						if(!$needSubscribe){
 							echo '<img src="/vfile/img/text-2.png" width="100%" >
 									<div class="telInput">
 										<input type="tel" maxlength="6" size="6">
@@ -121,7 +121,7 @@ top: 30%; z-index: 11; width: 100%;
 		</div>
 	
 		<?php
-			if($needSubscribe){
+			if(!$needSubscribe){
 				echo '<div class="btnArea">
 						<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="/vfile/img/receive-btn.png" width="100%" alt="领取"></span>
 						<span class="btn re-enter-btn"><a href="javascript:;"></a><img src="/vfile/img/re-enter-btn.png" width="100%" alt="重新输入"></span>
