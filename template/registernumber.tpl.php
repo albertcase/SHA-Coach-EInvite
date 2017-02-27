@@ -222,7 +222,8 @@ top: 30%; z-index: 11; width: 100%;
 	function submitCallback(data){
 
 	    if(data.code == "10" || data.code == "6"){
-	    	location.reload();
+	    	//location.reload();
+	    	location.replace(location);
 	    }else{
 			if(data.code != "8"){
 				coachEinviteMethod.count--;
