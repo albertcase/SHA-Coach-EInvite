@@ -51,7 +51,13 @@
 			</div>
 			<div class="qr-ctn" id="qrcodeCanvas"></div>
 			<img src="/vfile/img/jpTips.png" width="100%" >
-			<a class="ruleLink_inside" href="http://url.cn/41PId89" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>
+
+			<?php
+				if($city != "suzhou"){
+						echo '<a class="ruleLink_inside" href="http://mp.weixin.qq.com/s/kEyz_QkpDPgabD3hsqO1vQ" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>';
+				}
+			?>
+			
 		</div>
 
 	</div>
