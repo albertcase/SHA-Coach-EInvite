@@ -61,6 +61,10 @@ body.xian .container{
     background: rgba(255,255,255,.9);
 }
 
+body.kunming .container{
+    background: rgba(255,255,255,.9);
+}
+
 .logo{
     display: inline-block;
     margin: 9% 0 7% 0;
