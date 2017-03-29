@@ -21,7 +21,7 @@
 	$city = isset($city)?$city:'';
 	$needSubscribe = isset($needSubscribe)?$needSubscribe:FALSE;
 
-	if($city == "suzhou" || $city == "xian"){
+	if($city == "suzhou" || $city == "xian" || $city == "kunming"){
 		
 	}else{
 		$city = "other";

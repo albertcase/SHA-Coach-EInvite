@@ -18,7 +18,7 @@
 
 <?php
 	$city = isset($city)?$city:'';
-	if($city == "suzhou" || $city == "xian"){
+	if($city == "suzhou" || $city == "xian" || $city == "kunming"){
 		
 	}else{
 		$city = "other";
