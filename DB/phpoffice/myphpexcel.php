@@ -93,7 +93,8 @@ require_once dirname(__FILE__).'/Classes/PHPExcel/IOFactory.php';
         '男' => 1,
         '城市' => 'city',
         '苏州' => 'suzhou',
-        '西安' => 'xian'
+        '西安' => 'xian',
+        '昆明' => 'kunming'
       );
       if(isset($strings[$key]))
         return $strings[$key];
