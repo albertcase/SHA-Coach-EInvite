@@ -54,7 +54,7 @@
 
 			<?php
 				if($city != "suzhou"){
-						echo '<a class="ruleLink_inside" href="http://mp.weixin.qq.com/s/kEyz_QkpDPgabD3hsqO1vQ" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>';
+						echo '<a class="ruleLink_inside" href="http://mp.weixin.qq.com/s/5kqTKrpxTk0SuwEtSJzBVg" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>';
 				}
 			?>
 			
