@@ -98,9 +98,9 @@ class ApiController extends Controller {
 	public function demonloginAction() {
 		$_SESSION['openid'] = 'wwssssssssssssssssadawdawad';
 		$data = array(
-			'openid' => 'wwssssssssssssssssadawdawad',
+			'openid' => 'oKCDxjivJ92ky4dxLT8dt1jcXtn4',
 			'nickname' => 'nickname',
-			'headimgurl' => 'http://test.com/asdasdawdawdawdawdawdawdawd'
+			'headimgurl' => 'http://test.com/oKCDxjivJ92ky4dxLT8dt1jcXtn4'
 		);
 		$_db = new \Lib\DatabaseAPI();
 		$_db->insertNewUser($data);
