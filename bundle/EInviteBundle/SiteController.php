@@ -102,7 +102,8 @@ class SiteController extends Controller {
 	}
 
 	public function registernumberAction() {
-		return $this->render('registernumber', array('trytimes' => 2));
+		$city = isset($_GET['city'])?$_GET['city']:'suzhou';
+		return $this->render('registernumber', array('trytimes' => 2, 'city' =>$city ));
 	}
 
 	public function awardcardAction() {
