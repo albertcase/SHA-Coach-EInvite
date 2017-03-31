@@ -1,5 +1,6 @@
 <?php
 return array(
   'suzhou',
-  'xian'
+  'xian',
+  'kunming'
 );

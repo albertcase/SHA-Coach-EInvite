@@ -21,7 +21,7 @@
 	$city = isset($city)?$city:'';
 	$needSubscribe = isset($needSubscribe)?$needSubscribe:FALSE;
 
-	if($city == "suzhou" || $city == "xian"){
+	if($city == "suzhou" || $city == "xian" || $city == "kunming"){
 		
 	}else{
 		$city = "other";
@@ -124,7 +124,7 @@ top: 30%; z-index: 11; width: 100%;
 			if(!$needSubscribe){
 				$str = '';
 				if($city != "suzhou"){
-					$str =  '<a class="ruleLink" href="http://mp.weixin.qq.com/s/kEyz_QkpDPgabD3hsqO1vQ" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>';
+					$str =  '<a class="ruleLink" href="http://mp.weixin.qq.com/s/5kqTKrpxTk0SuwEtSJzBVg" target="_blank"><img src="/vfile/img/rulelink.png" width="25%" /></a>';
 				}
 				echo '<div class="btnArea">
 						<span class="btn receive-btn btnshow"><a href="javascript:;"></a><img src="/vfile/img/receive-btn.png" width="100%" alt="领取"></span>

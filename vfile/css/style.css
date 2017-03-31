@@ -23,6 +23,11 @@ body.xian{
     background-size: 100% auto;
 }
 
+body.kunming{
+    background: #000 url('../img/kunming/bg.jpg') no-repeat center top;
+    background-size: cover;
+}
+
 .ycenter{
     /* Center slide text vertically */
     display: -webkit-box;
@@ -53,6 +58,10 @@ body.xian{
 }
 
 body.xian .container{
+    background: rgba(255,255,255,.9);
+}
+
+body.kunming .container{
     background: rgba(255,255,255,.9);
 }
 
